@@ -1,0 +1,27 @@
+/*
+后台司机编辑 外在肌肤，水嫩丝滑
+生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+*/
+.DriverEditAdmin{
+
+}
+
+.dea-car{
+    border:1px solid #d2d2d2;
+    border-radius: 5px;
+    padding-top: 20px;
+}
+
+.dea-car-addinput{
+    height: 130px;
+    width: 100%;
+    color:#d2d2d2;
+    background-color: transparent;
+    border-radius: 5px;
+    border:2px dashed ;
+    outline: none;
+}
+
+.dea-car-addinput:hover{
+    color: #727272
+}

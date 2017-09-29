@@ -1,0 +1,114 @@
+<!--
+    订单管理 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="OrderListAdmin">
+    <!--标题-->
+    <br>
+    <button class="pull-right btn btn-info" ms-click="toEdit(0)">添加订单</button>
+    <tsy:searchtool config="$optST"></tsy:searchtool>
+
+    <!-- 列表-->
+    <br>
+
+    <table class="table table-responsive table-bordered" style="margin-bottom: 50px;">
+        <thead style="text-align: center;word-break: keep-all;white-space: nowrap">
+        <tr>
+            <td>结算</td>
+            <td>订单编号</td>
+            <td>类型</td>
+            <td>需求车型</td>
+            <td>下单人</td>
+            <td>订单状态</td>
+            <td>行程点</td>
+            <td>用车时间</td>
+            <td>里程数(公里)</td>
+            <td>联系人</td>
+            <td style="min-width: 145px;">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list" class="ola-pointer" ms-class="waitCharge:el.Status==='8'">
+            <td style="padding: 0;">
+                <!--由于使用了class做判断，故class与js高耦合，请勿修改name为checkradio的class-->
+                <div ms-click="RadioClick(this,el.OrderID)" style="min-width:40px;text-align: center;line-height: 39px;cursor: pointer;">
+                    <div name="checkradio" ms-if="el.Status==='8'"  class="circle_choose">
+                        <i class="icon-ok"></i>
+                    </div>
+                </div>
+
+            </td>
+            <td  ms-class-1="text-info:el.Status==='1'" title="点击查看该订单详情"  ms-click="toInfo(el.OrderID)"
+                 style="cursor: pointer;text-align: center" class="ola-pointer" >
+                {{el.OrderID}}
+            </td>
+            <td style="min-width: 50px;" >
+                <span>{{$Order_Type[el.Type]}}</span>
+            </td>
+            <td>
+                <span>{{$Car_Type[el.CarType]}}</span>
+            </td>
+            <td>{{el.Name}}</td>
+            <td ms-class="text-info:el.Status==='1'||el.Status==='4'||el.Status==='8'" style="min-width: 102px;">
+                <span>{{$Order_Status[el.Status]}}</span>
+            </td>
+            <td style="max-width: 300px;">
+                    <span ms-if="el.beginAddress">
+                        <strong>始：</strong>{{el.beginAddress}}
+                    </span>
+                <span ms-if="el.otherAddress">
+                        {{el.otherAddress}}
+                    </span>
+                <span ms-if="el.endAddress">
+                       <strong> 终：</strong>{{el.endAddress}}
+                    </span>
+            </td>
+            <td style="min-width: 134px;">{{el.Time*1000 | date("yyyy-MM-dd HH:mm")}}</td>
+            <td>{{el.Mileage}}</td>
+            <td>{{el.Phone}}</td>
+            <td style="text-align: left;min-width: 133px;">
+                <button class="btn btn-xs btn-link"  ms-click="toInfo(el.OrderID)" >详情</button>
+                <button ms-if="el.Status<=7" class="btn btn-default btn-xs" ms-click="appointDriver(el.OrderID)">
+                    指派
+                </button>
+                <!--<button ms-if="el.Status==='1'" class="btn btn-info btn-xs" ms-click="CompetitionForOrders(el.OrderID,el.Status)">-->
+                    <!--抢单-->
+                <!--</button>-->
+                <span ms-if="el.Status!=='1'" ms-class-1="text-info:el.Status==='4'">{{$Order_Status[el.Status]}}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- 分页-->
+    <div style="margin-bottom: 120px;">
+        <tsy:pager config="$pager"></tsy:pager>
+        <tsy:hey config="$opthey"></tsy:hey>
+    </div>
+
+
+       <div class="pos-Fixed">
+           <div class="OrderListAdmin_Charge">
+               <div style="height: 60px;margin-right: 145px;padding:0 20px;border: 1px solid #d8d8d8;overflow: hidden">
+                   <div class="pull-left">
+                       <div ms-click="RadioClick(this,'all')" style="cursor: pointer;">
+                           <!--由于使用了class做判断，故class与js高耦合，请勿修改name为radioall的class-->
+                           <div class="circle_choose" name="radioall" >
+                               <i class="icon-ok"></i>
+                           </div>
+                           <span>全选</span>
+                       </div>
+                   </div>
+                   <div class="pull-right">
+                       (&nbsp;<span>{{checked_num}}</span>&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;
+                       合计：<span style="font-size: 18px;color: #e84e40;font-weight: bold">￥&nbsp;{{Amount}}</span>
+                   </div>
+               </div>
+               <button ms-click="CloseAccounts">
+                   结算
+               </button>
+           </div>
+   </div>
+
+</div>

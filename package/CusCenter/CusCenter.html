@@ -1,0 +1,58 @@
+<!--
+    客户订单列表 核心骨架，百折不挠
+    生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="CusCenter" class="CusCenter container" >
+    <!--头部信息-->
+    <div>
+        <div class="cc-head">
+            <img ms-attr-src="cache.go('Avatar')" alt="">
+        </div>
+        <div>
+            <h3 style="min-height: 52px">
+                {{info.Name}}<br>
+                <small>
+                    {{info.Company.Title}}
+                </small>
+            </h3>
+        </div>
+    </div>
+    <br>
+    <!--开单按钮-->
+    <div class="addOrder" ms-if="info.CompanyID!=2">
+        <a ms-attr-href="#!/NewOrder/{{UID}}" class="btn btn-default text-info">
+            本人用车下单
+        </a>
+        <a href="#!/NewOrder/0" class="btn btn-default ">
+            他人用车下单
+        </a>
+    </div>
+    <br>
+
+
+    <div class="cc-order-list">
+        <div class="cc-order-each" ms-repeat="list" ms-if="list.length!=0">
+            <div class="cc-each-l col-xs-8">
+                <strong style="font-size: 20px;margin-top: -10px;">{{el.Time*1000|date('yy年M月d日 h:mm')}}</strong><br>
+                <span style="text-align: center" ms-if="el.Routers.length>0">从&nbsp;{{el.beginAddress}}&nbsp;到&nbsp;{{el.endAddress}}</span>
+                <span ms-if="el.Routers.length==0">未知路径</span><br>
+                <span>{{$carDic[el.CarType]}}</span>
+            </div>
+            <div class="cc-each-r col-xs-4">
+                <p style="color: #4fc08d;" ms-if="el.Status==='1'||el.Status==='2'||el.Status==='3'||el.Status==='4'">
+                    待处理</p>
+                <p ms-if="el.Status==='5'||el.Status==='6'">已接单</p>
+                <p style="color: #e96900;" ms-if="el.Status==='7'">行程中</p>
+                <p style="color: #e94043;" ms-if="el.Status==='8'">待结算</p>
+                <p style="color: #aaa;" ms-if="el.Status==='9'">已结束</p>
+                <button ms-click="MyOrdersInfo(el.OrderID)" class="btn btn-info btn-sm cc-btn-imt">详情</button>
+            </div>
+
+        </div>
+        <div style="text-align: center" ms-if="list.length==0">
+
+        </div>
+    </div>
+    <!--<button class="btn btn-primary btn-sm" ms-click="quickOrder">一键下单</button>-->
+
+</div>

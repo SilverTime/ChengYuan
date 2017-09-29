@@ -1,0 +1,195 @@
+<!--
+    后台司机编辑 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="DriverEditAdmin">
+    <div class="pop-title">
+        {{PopPanelName}}
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <label class="control-label">
+                账&nbsp;户：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input ms-if="status=='0'" id="account" type="text" class="form-control" ms-duplex="details.User.Account"
+                   placeholder="新建账户名" maxlength="30">
+            <input ms-if="status!='0'" disabled type="text" class="form-control" ms-duplex="details.User.Account"
+                   placeholder="新建账户名" maxlength="30">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                姓&nbsp;名：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input id="name" type="text" class="form-control" ms-duplex="details.User.Name" placeholder="姓名"
+                   maxlength="30">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                手&nbsp;机：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input ms-if="status=='0'" id="phone" type="text" class="form-control" ms-duplex="details.User.Phone" placeholder="手机号码">
+            <input ms-if="status!='0'" disabled type="text" class="form-control" ms-duplex="details.User.Phone" placeholder="手机号码">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                密&nbsp;码：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input id="psw" ms-if="status===0" type="password" class="form-control" ms-duplex="details.User.PWD"
+                   placeholder="登录密码">
+            <input ms-if="status===1" disabled type="password" class="form-control" placeholder="密码不可更改">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                性&nbsp;别：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <select id="sex" type="text" class="form-control" ms-duplex="details.User.Sex">
+                <option value="0">男</option>
+                <option value="1">女</option>
+            </select>
+            <br>
+        </div>
+        <!--司机不添加企业信息,设计稿又把我坑了= =-->
+        <!--<div class="col-xs-4">-->
+        <!--<label class="control-label">-->
+        <!--企业：-->
+        <!--</label>-->
+        <!--<tsy:find config="$optFindCompany" ms-data-id="'UEACInput'"></tsy:find>-->
+        <!--<br>-->
+        <!--</div>-->
+        <div class="col-xs-4">
+            <label class="control-label">
+                司机编号：
+            </label>
+            <input  id="VID" type="text" class="form-control" ms-duplex="details.User.VID" placeholder="司机编号">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <!--<br>-->
+            <label class="control-label">
+                状态：
+            </label>
+            <tsy:switch config="$optDriverStatus"></tsy:switch>
+            <br>
+        </div>
+        <div class="col-xs-6">
+            <button class="btn btn-info btn-block " ms-click="add" style="margin-top: 5px;">
+                保存司机信息
+            </button>
+        </div>
+        <div class="col-xs-2" ms-if="status==1">
+            <button ms-click="del" class="btn btn-default btn-block"
+                    style="margin-top: 5px;border:1px solid #cccccc;color:#a94442;">
+                删除
+            </button>
+        </div>
+
+
+    </div>
+
+    <!--绑定车辆-->
+    <hr style="border-top: 1px solid #5bc0de;">
+    <div class="text-center">
+        车辆信息
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-6 " ms-repeat="bindedCars">
+            <div class="dea-car">
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" placeholder="车牌" ms-duplex="el.Number" disabled>
+                    <br>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" placeholder="颜色" ms-duplex="el.Color" disabled>
+                    <br>
+                </div>
+                <div class="col-xs-6">
+                    <input disabled type="text" class="form-control" placeholder="车型" ms-duplex="el.Title">
+
+                    <br>
+                </div>
+                <div class="col-xs-6">
+                    <select type="text" class="form-control" placeholder="状态" ms-duplex="el.Status" disabled>
+                        <option value="">选择状态</option>
+                        <option ms-repeat="carStatus" ms-attr-value="$key">{{$val}}</option>
+                    </select>
+                    <br>
+                </div>
+
+                <button class="btn btn-danger btn-xs" ms-click="unbindCar(el.CarID)"
+                        style="position: absolute;bottom: 13px;right: 30px;">解绑
+                </button>
+
+                <div class="clearfix"></div>
+            </div>
+            <br>
+        </div>
+        <div class="col-xs-6 " ms-repeat="cars">
+            <div class="dea-car">
+                <div class="col-xs-6">
+                    <tsy:find config="$optCar" ms-data-id="'DEACarInput'+$index"></tsy:find>
+                    <br>
+                </div>
+                <div class="col-xs-6">
+                    <input disabled type="text" class="form-control" placeholder="颜色" ms-duplex="el.Color">
+                    <!--<input ms-if="status!=0" disabled type="text" class="form-control" placeholder="颜色" ms-duplex="el.Color">-->
+                    <br>
+                </div>
+                <div class="col-xs-6">
+                    <!--<select ms-if="status==0" type="text" class="form-control" placeholder="车型" ms-duplex="el.Title">-->
+                    <!--<option value="">选择车型</option>-->
+                    <!--<option value="A类车">A类车</option>-->
+                    <!--<option value="B类车">B类车</option>-->
+                    <!--<option value="商务车">商务车</option>-->
+                    <!--</select>-->
+
+                    <input disabled type="text" class="form-control" placeholder="车型" ms-duplex="el.Title">
+                    <br>
+                </div>
+                <div class="col-xs-6">
+                    <!--<select ms-if="status==0" disabled type="t ext" class="form-control" placeholder="状态" ms-duplex="el.Status">-->
+                    <!--<option value="" >车辆状态</option>-->
+                    <!--<option ms-repeat="carStatus" ms-attr-value="$key">{{$val}}</option>-->
+                    <!--</select>-->
+                    <input disabled type="text" class="form-control" placeholder="车辆状态"
+                           ms-duplex="$Car_Status[el.Status]">
+
+                    <br>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <br>
+        </div>
+        <div class="col-xs-6">
+            <button class="dea-car-addinput" ms-click="addCarInput(1)">
+                <span style="color: #5bc0de;">
+                     <i style="color: #5bc0de;" class="icon-plus icon-4x"></i><br>
+                绑定更多车辆
+                </span>
+            </button>
+        </div>
+        <!--<br>-->
+        <div class="col-md-12" style="margin: 20px 0;">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+
+                <button class="btn btn-block btn-info" ms-click="bindCar">
+                    绑定车辆信息
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

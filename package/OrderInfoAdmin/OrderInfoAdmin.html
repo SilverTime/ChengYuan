@@ -1,0 +1,181 @@
+<!--
+    后台订单详情 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="OrderInfoAdmin" style="padding-bottom: 100px;">
+    <div class="oia-title">
+        <a class="oia-title-link" href="#!/OrderListAdmin/0">订单列表</a>
+        —
+        订单详情
+    </div>
+    <hr/>
+    <div>
+        <div class="row">
+            <div class="col-xs-3">
+                <p class="text-info">订单编号： {{details.OrderID}}</p>
+                <p>订单来源： {{details.Creator.Account}}</p>
+                <p>下单时间： {{details.CTime*1000 | date("yyyy-M-dd HH:mm")}}</p>
+                <p>下单人编号： {{details.CUID}}</p>
+                <p>企业名称： {{details.Company.Title}}</p>
+            </div>
+            <div class="col-xs-3">
+                <p>用车人： {{details.Name}}</p>
+                <p>用车时间： {{details.Time*1000 | date("yyyy-MM-dd HH:mm")}}</p>
+                <p>需求车型： {{$Car_Type[details.CarType]}}</p>
+                <p class="text-danger">折扣力度：
+                    <span ms-if="driverInfo.User.Account">{{driverInfo.User.Company.Discount}}&nbsp;%</span>
+                    <span ms-if="!driverInfo.User.Account">暂无信息</span>
+                </p>
+                <p>其他要求：
+                    <span ms-if="details.Memo">{{details.Memo}}</span>
+                    <span ms-if="!details.Memo">无</span>
+                </p>
+
+            </div>
+            <div class="col-xs-3">
+                <p>抢单发布时间 ：
+                    <span ms-if="details.SnapSendTime!=='0'">{{details.SnapSendTime*1000 | date("yyyy-MM-dd HH:mm")}}</span>
+                    <span ms-if="details.SnapSendTime==='0'">未记录</span>
+                </p>
+                <p class="text-info">订单状态：
+                    <span>{{$Order_Status[details.Status]}}</span>
+                </p>
+                <p>抢单司机编号：
+                    <span ms-if="details.SnapDriverID">{{details.SnapDriverID}}</span>
+                    <span ms-if="!details.SnapDriverID">{{details.AssignDriverID}}</span>
+                </p>
+                <p>
+                    <span ms-if="!details.SnapTime||details.SnapTime==='0'">
+                        被指派时间：{{details.AssignTime*1000 | date("yyyy-MM-dd HH:mm")}}
+                    </span>
+                    <span ms-if="details.SnapTime&&details.SnapTime!=='0'">
+                        抢单时间：{{details.SnapTime*1000 | date("yyyy-MM-dd HH:mm")}}
+                    </span>
+                </p>
+            </div>
+            <div class="col-xs-3">
+               <div ms-if="driverInfo.User.Account">
+                   <p>司机姓名： {{driverInfo.User.Name}}</p>
+                   <p>联系方式： {{driverInfo.User.Phone}}</p>
+                   <p>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：{{driverInfo.Car.Number}}
+                   </p>
+                   <p>颜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;色：{{driverInfo.Car.Color}}
+                   </p>
+               </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-3">
+                <p class="text-info">起点：
+                    <span ms-if="details.beginAddress">{{details.beginAddress}}</span>
+                </p>
+                <p class="text-info">终点：
+                    <span ms-if="details.endAddress">{{details.endAddress}}</span>
+                </p>
+                <p class="text-info">路径点：
+                    <span ms-if="details.otherAddress">{{details.otherAddress}}</span>
+                </p>
+
+            </div>
+            <div class="col-xs-3">
+                <p>
+                    <span ms-if="details.SnapJudgeUID">抢单审核人： {{details.SnapJudgeUID}}</span>
+                    <span ms-if="!details.SnapJudgeUID">订单指派人： {{details.Assignor.Account}}</span>
+                </p>
+                <p>
+                    <span ms-if="!details.SnapJudgeTime||details.SnapJudgeTime==='0'">
+                        订单指派时间：{{details.AssignTime*1000 | date("yyyy-MM-dd HH:mm")}}
+                    </span>
+                    <span ms-if="details.SnapJudgeTime&&details.SnapJudgeTime!=='0'">
+                        抢单审核时间： {{details.SnapJudgeTime*1000 | date("yyyy-MM-dd HH:mm")}}
+                    </span>
+                    </p>
+                <p>抢单审核结果：
+                    <span ms-if="details.SnapDriverID">
+                         {{details.SnapJudteResult}}
+                    </span>
+                </p>
+                <p>指派人：
+                    <span ms-if="details.AssignUID">{{details.AssignUID}}</span>
+                    <span ms-if="!details.AssignUID">尚未指派</span>
+                </p>
+                <p>指派时间： {{details.AssignTime*1000 | date("yyyy-MM-dd HH:mm")}}</p>
+                <p>指派司机编号： {{details.AssignDriverID}}</p>
+            </div>
+            <div class="col-xs-3">
+                <p>行程开始时间：
+                     <span ms-if="!details.StartTime||details.StartTime==='0'">
+                        尚未开始
+                    </span>
+                    <span ms-if="details.StartTime&&details.StartTime!=='0'">
+                        {{details.StartTime*1000 | date("yyyy-M-dd HH:mm")}}
+                    </span>
+                </p>
+                <p>行程结束时间：
+                     <span ms-if="!details.StartTime||details.StartTime==='0'">
+                        暂无
+                    </span>
+                    <span ms-if="details.StartTime&&details.StartTime!=='0'">
+                      {{details.EndTime*1000 | date("yyyy-M-dd HH:mm")}}
+                    </span>
+                </p>
+                <p>里程数：
+                <span ms-if="details.Mileage">
+                     {{details.Mileage}}公里
+                </span>
+                    <span ms-if="!details.Mileage">
+                        暂无
+                    </span>
+                </p>
+                <p>行程时间：
+                    <span ms-if="!details.Billings.CTime||details.Billings.CTime==='0'">
+                        暂无
+                    </span>
+                    <span ms-if="details.Billings.CTime&&details.Billings.CTime!=='0'">
+                      {{details.Billings.CTime*1000 | date("yyyy-M-dd HH:mm")}}
+                    </span>
+                </p>
+                <p>订单结算时间：
+                    <span ms-if="!details.PayTime||details.PayTime==='0'">
+                        尚未结算
+                    </span>
+                    <span ms-if="details.PayTime&&details.PayTime!=='0'">
+                      {{details.PayTime*1000 | date("yyyy-M-dd HH:mm")}}
+                    </span>
+                </p>
+                <p class="text-danger">行程费用：
+                    <span ms-if="details.Money">{{details.Money}}</span>
+                    <span ms-if="!details.Money">尚无</span>
+                    <button ms-if="!details.Money" disabled class="btn btn-sm" style="margin-left: 15px;color: #4e4e4e;" ms-click="toBill(details.OrderID)">查看详情</button>
+                    <button  ms-if="details.Money" class="btn btn-info btn-sm" style="margin-left: 15px;" ms-click="toBill(details.OrderID)">查看详情</button>
+                </p>
+            </div>
+            <div class="col-xs-3">
+                <h3 class="text-danger">付费情况:
+                    <span ms-if="!details.Statuses.Status"> 暂无</span>
+                <span ms-if="details.Statuses.Status">
+                    {{details.Statuses.Status}}
+                </span>
+                </h3>
+                <p>服务评价:
+                <span ms-if="details.Evaluate">
+                    {{details.Evaluate}}
+                </span>
+                    <span ms-if="!details.Evaluate">
+                        暂无评价
+                    </span>
+                </p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <strong class="text-info">备注：
+        <span ms-if="details.OtherMemo">{{details.OtherMemo}}</span>
+        <span ms-if="!details.OtherMemo">无</span>
+        </strong>
+    </div>
+    <hr>
+    <button class="btn btn-info" ms-click="toEdit">修改订单</button>
+</div>

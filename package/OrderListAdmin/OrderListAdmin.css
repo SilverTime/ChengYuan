@@ -1,0 +1,99 @@
+/*
+订单管理 外在肌肤，水嫩丝滑
+生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+*/
+.OrderListAdmin {
+
+}
+
+.OrderListAdmin .property {
+    margin-right: 20px;
+    line-height: 20px;
+}
+
+.circle_choose {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border: 2px solid #444444;
+    border-radius: 16px;
+    font-size: 12px;
+    background: #fff;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.circle_choose i {
+    color: #fff;
+    background: transparent;
+    display: block;
+    cursor: pointer;
+}
+.chosen {
+    background: #444;
+}
+.unchosen{
+    background: #fff;
+}
+.pos-Fixed{
+     position: fixed;
+     bottom:10px;
+    width:100%;
+    background: #ffffff;
+ }
+@media (min-width: 768px) {
+    .pos-Fixed {
+        width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .pos-Fixed {
+        width: 940px;
+    }
+}
+@media (min-width: 1200px) {
+    .pos-Fixed {
+        width: 1140px;
+    }
+}
+
+.OrderListAdmin_Charge {
+    height: 60px;
+    line-height: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.OrderListAdmin_Charge button {
+    height: 60px;
+    width: 145px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #e84e40;
+    color: #fff;
+    border: 1px solid #dd1c1d;
+    font-size: 20px;
+}
+
+.ola-pointer:hover{
+    background: rgba(49, 176, 213, 0.11);
+}
+
+
+.add-btn{
+    padding:5px 30px;
+    color: #fff;
+    background: #9cbc2c;
+    border:1px solid #6e851f;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.waitCharge{
+    background: rgba(222, 247, 250, 0.48);
+}

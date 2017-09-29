@@ -1,0 +1,42 @@
+<!--
+    编辑司机信息 核心骨架，百折不挠
+    生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="EditDiverInfo" class="container EditDiverInfo">
+    <h3 class="text-center">
+        个人信息
+    </h3>
+    <hr>
+    <div class="col-xs-12">
+        <div class="row" >
+            <div class="col-xs-3" style="line-height: 34px">
+                姓名：
+            </div>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" ms-duplex="info.Name">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-3" style="line-height: 34px">
+                性别：
+            </div>
+            <div class="col-xs-9">
+                <select type="text" class="form-control" ms-duplex="info.Sex">
+                    <option ms-repeat="$SexDic" ms-attr-value="$key">{{$val}}</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-3" style="line-height: 34px">
+                电话：
+            </div>
+            <div class="col-xs-9">
+                <input type="tel" class="form-control" ms-duplex="info.Phone">
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-info btn-block" ms-click="save">保存</button>
+    </div>
+</div>

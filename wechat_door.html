@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>正在登陆</title>
+    <!--移动优先-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+
+    <!--//不缓存-->
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+</head>
+<body>
+<!--this/CourseAppointment_F/wechat_door.html-->
+</body>
+
+<script>
+
+    /*
+    * 微信登录流程：
+    * 访问到wechat_door.html
+    * 后面加上 # 加上要跳转的地址
+    * 访问地址例如：localhost/CourseAppointment_F/wechat_door.html#/UserInfo/0
+    * 该页面下跳转 r.tansuyun.cn/w.php?i=JS/user…………………………
+    * 经过几次跳转后会跳转回到wechat.html#!/UserInfo/0
+    * 最后在wechat.js 下面的gerUser() 中获取到微信资料
+    * 最后的最后进行门禁判断，然后该干嘛干嘛
+    * */
+    //    this/CourseAppointment_F/wechat_door.html#/MyCourse/0
+    //配置项
+    var config = {
+        i: "Js/user",
+        //(snsapi_base:静默授权[只能得到OpenID信息]，snsapi_userinfo:全部信息获取)
+        Scope: "snsapi_userinfo",
+        //即将前往的页面
+        URL: getTarget(),
+        //微信公众号ID
+        ID: 'gh_44762b9b09f0'
+    }
+
+    function getTarget() {
+        //解析#后面的参数与域名一起合成为即将跳转的地址
+        var target = window.location.hash.replace('#', '')
+        console.log(target)
+        return encodeURIComponent(
+                (location.origin + location.pathname)
+                        .replace('/wechat_door.html', '/index.html#!')
+                + target
+        )
+
+    }
+
+    function getTheWay() {
+        var TransferGate = location.protocol + '//r.tansuyun.cn/w.php?'
+        for (var x in config) {
+            TransferGate += x + '=' + config[x] + "&"
+        }
+        return TransferGate
+    }
+
+    window.location.href = getTheWay()
+
+
+</script>
+</html>

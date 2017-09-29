@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title id="title">成远商务</title>
+    <meta content="" name="Description">
+    <meta content="碳素云" name="Keywords">
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <!--avalon-->
+    <link href="./src/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="./common.css" rel="stylesheet" type="text/css"/>-->
+    <link rel="stylesheet" href="./src/css/font-awesome.min.css"/>
+    <script src="./src/js/avalon.modern.1.5.min.js"></script>
+    <style>
+        * {
+            font-family: "微软雅黑";
+        }
+
+        [ms-controller] {
+            visibility: hidden
+        }
+    </style>
+    <link rel="stylesheet" href="src/css/local.css">
+</head>
+<body ms-controller="index">
+<div class="top-bar">
+    <div class="container">
+        <div class="pull-left" style="font-size: 20px">
+            成远商务
+        </div>
+
+        <div id="username" ms-if="showNav">
+            <div class="pull-right">
+                <span>{{un}}</span>
+                &nbsp;&nbsp;
+                <a ms-click="logout">
+                    <i class="icon icon-off" style="color:red"></i>
+                    退出
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--导航-->
+
+
+<div class="container jt-nav" ms-if="showNav">
+    <a class="jt-nav-link" ms-repeat="nav" ms-class="now:nowTop==el.en||nowTop==el.name"
+       ms-attr-href="el.href">
+        {{el.name}}
+    </a>
+</div>
+
+
+<!--正文-->
+<div style="min-height: 487px" class="container">
+    {{html|html}}
+</div>
+
+<!--页脚-->
+<div>
+
+</div>
+
+<!--组件-->
+<tsy:progressbar config="$optd"></tsy:progressbar>
+<tsy:tip config="$opta"></tsy:tip>
+<tsy:pop config="$optpop"></tsy:pop>
+<tsy:pop config="$optpop2"></tsy:pop>
+
+<!--引用逻辑-->
+<!--<script src="//cdn.bootcss.com/markdown.js/0.6.0-beta1/markdown.min.js"></script>-->
+<script src="plugins/cache/cache.js"></script>
+<script src="plugins/call/call.mobile.v2.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

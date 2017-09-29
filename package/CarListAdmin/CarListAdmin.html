@@ -1,0 +1,55 @@
+<!--
+    司机车辆列表 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="CarListAdmin">
+    <!--标题-->
+    <br>
+    <button class="pull-right btn btn-info" ms-click="toCarsEdit(0)">添加车辆</button>
+    <tsy:searchtool config="$optCarList"></tsy:searchtool>
+
+    <!-- 列表-->
+    <br>
+
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr style="word-break: keep-all;white-space: nowrap" class="text-center">
+            <td class="text-info">车牌号</td>
+            <td>车型</td>
+            <td>状态</td>
+            <td>颜色</td>
+            <td>车辆年检到期日</td>
+            <td>车辆保险到期日</td>
+            <td>车辆保养信息</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list">
+            <td>{{el.Number}}</td>
+            <td>{{el.Title}}</td>
+            <td ms-if="el.Status==='1'" style="color: #49aaa1;">空闲</td>
+            <td ms-if="el.Status==='-1'" style="color: #aa3c3b;">维修</td>
+            <td ms-if="el.Status==='2'" style="color: #28608f;">出行</td>
+            <td ms-if="el.Status==='-2'" style="color: #bbbbbb;">禁用</td>
+            <td>{{el.Color}}</td>
+            <td>{{el.MotTime}}</td>
+            <td>{{el.CarInsuranceTime}}</td>
+            <td>{{el.Upkeep}}</td>
+            <td>
+                <button style="margin-right: 10px" class="btn btn-info btn-xs" ms-click="findDriver(el.CarID)">
+                    查看司机
+                </button>
+                <button class="btn btn-info btn-xs" ms-click="toCarsEdit(el.CarID)">
+                    修改
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- 分页-->
+    <tsy:pager config="$carpager"></tsy:pager>
+
+</div>

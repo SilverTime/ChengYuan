@@ -1,0 +1,103 @@
+<!--
+    后台司机编辑 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="CarEditAdmin">
+    <div class="pop-title">
+        {{PopPanelName}}
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <label class="control-label">
+                车牌号：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input ms-if="status==0" type="text" class="form-control" ms-duplex="details.Number" placeholder="输入车牌号，例川A-0000">
+            <input ms-if="status!=0" type="text" disabled class="form-control" ms-duplex="details.Number" placeholder="xxx">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                车&nbsp;&nbsp;&nbsp;&nbsp;型：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <!--<input type="text" class="form-control" ms-duplex="details.Title" placeholder="xxx">-->
+
+            <select type="text" class="form-control" placeholder="请选择车型" ms-duplex="details.Title">
+            <option value="">选择车型</option>
+            <option value="A类车">A类车</option>
+            <option value="B类车">B类车</option>
+            <option value="商务车">商务车</option>
+            </select>
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                颜&nbsp;&nbsp;&nbsp;&nbsp;色：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input type="text" class="form-control" ms-duplex="details.Color" placeholder="请填写车辆的颜色">
+            <br>
+        </div>
+
+
+        <div class="col-xs-4">
+            <label class="control-label">
+                状&nbsp;&nbsp;&nbsp;&nbsp;态：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <select type="text" class="form-control" ms-duplex="details.Status">
+                <option value="">选择车辆状态</option>
+                <option value="1">空闲</option>
+                <option value="-1">维修</option>
+                <option value="2">出行</option>
+                <option value="-2">禁用</option>
+            </select>
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                车辆年检到期日：
+                <!--<small class="text-danger">(必填)</small>-->
+            </label>
+            <input type="date" class="form-control" ms-duplex="details.MotTime" placeholder="车辆年检到期日">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                车辆保险到期日：
+                <!--<small class="text-danger">(必填)</small>-->
+            </label>
+            <input type="date" class="form-control" ms-duplex="details.CarInsuranceTime" placeholder="车辆保险到期日">
+            <br>
+        </div>
+        <div class="col-xs-12">
+            <label class="control-label">
+                车辆保养信息：
+                <!--<small class="text-danger">(必填)</small>-->
+            </label>
+            <textarea type="text" class="form-control" ms-duplex="details.Upkeep" rows="2" placeholder="车辆保养信息"></textarea>
+            <br>
+        </div>
+        <div class="col-xs-12">
+            <!--<tsy:switch config="$optCarStatus"></tsy:switch>-->
+        </div>
+    </div>
+
+    <div class="row">
+            <div ms-class="{{status==1? 'col-xs-8':'col-xs-12'}}">
+            <br>
+            <button class="btn btn-info btn-block" ms-click="add" style="margin-top: 5px;">
+                确定
+            </button>
+        </div>
+        <div class="col-xs-4" ms-if="status==1">
+            <br>
+            <button class="btn btn-default btn-block" style="margin-top: 5px;border:1px solid #cccccc;color:#a94442;"
+                    ms-click="del">删除
+            </button>
+        </div>
+    </div>
+</div>

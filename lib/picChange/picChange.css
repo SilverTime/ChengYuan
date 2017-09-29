@@ -1,0 +1,132 @@
+.pic-box {
+    position: relative;
+}
+
+.pic-box input {
+    margin: 20px auto;
+    height: 40px;
+    width: 100%;
+}
+
+button:hover {
+    color: #000000;
+}
+
+.left-big-box{
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: margin-left 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+
+
+.left-big {
+    position: relative;
+    /*width: 100%;*/
+    /*height:100%;*/
+
+
+    /*background-attachment: fixed;*/
+    float: left;
+}
+
+.now-img {
+    /*width: 100% !important;*/
+    opacity: 1 !important;
+}
+
+.icon-control-left {
+    z-index: 999;
+    left: 15px;
+    background-size: 100%;
+    position: absolute;
+    top: 40%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.icon-control-left:hover {
+    opacity: 1;
+}
+.icon-control-right {
+    z-index: 999;
+    right: 15px;
+    background-size: 100%;
+    position: absolute;
+    top: 40%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.icon-control-right:hover {
+    opacity: 1;
+}
+
+.cir-nav{
+    z-index: 999;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+}
+.cir-nav ul{
+    list-style: none;
+    position: absolute;
+}
+.cir-li{
+    float: left;
+    margin-right: 10px;
+    background: #cbcbcb;
+    width:10px;
+    height:10px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.now-cir {
+    background: #ffffff;
+    width:12px;
+    height:12px;
+    margin-top: -1px;
+    margin-left: -1px;
+}
+
+
+
+@keyframes mask {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 50%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+.bottom-mask, .top-mask {
+    opacity: 0.5;
+    position: absolute;
+    height: 100%;
+    top:0px;
+    width: 1px;
+    animation: mask 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.top-mask {
+    left: 0px;
+}
+
+.bottom-mask {
+    right: 0px;
+}
+
+
+.pa-left{
+    background-position:left;
+}
+.pa-right{
+    background-position:right;
+}

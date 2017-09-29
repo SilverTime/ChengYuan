@@ -1,0 +1,123 @@
+/*
+订单详情 外在肌肤，水嫩丝滑
+生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+*/
+.DriverCenter {
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.order-list-top {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.dc-top-imgbox {
+    float: left;
+    margin: 5px;
+    width: 82px;
+    height: 82px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 82px;
+    overflow: hidden;
+
+    border: 1px solid #eee;
+}
+
+.dc-top-imgbox img {
+    width: 82px;
+    height: 82px;
+}
+
+.dc-top-right {
+    float: left;
+    margin-left: 30px;
+}
+
+.dc-top-right h3 {
+    margin-top: 10px;
+}
+
+.order-list-tab {
+
+}
+
+.dc-tab-btn {
+    width: 50%;
+    text-align: center;
+    background: #fff;
+    color: #121212;
+    padding: 6px 0;
+    border: 1px solid #bbbbbb;
+    float: left;
+    cursor: pointer;
+
+    font-size: 1.5rem;
+    margin: 10px 0 20px;
+}
+
+.dc-tab-now {
+    color: #5bc0de;
+    font-weight: bold;
+}
+
+.dc-btn-l {
+    border-radius: 6px 0 0 6px;
+}
+
+.dc-btn-r {
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+}
+
+.order-list-main {
+    overflow: hidden;
+    border: 1px solid #bbbbbb;
+    padding: 10px 0 30px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.dc-order-each {
+    padding: 10px 0 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #dddddd;
+}
+
+.dc-each-l {
+    line-height: 2.4rem;
+    font-size: 1.7rem;
+}
+
+.dc-each-r {
+    text-align: center;
+
+}
+.dc-order-each p{
+    font-size: 1.6rem;
+    color: #5bc0de;
+    font-weight:bold;
+}
+
+.dc-btn-imt {
+    padding: 5px 20px !important;
+    margin-top: 10px;
+}
+.dc-chase-btn{
+    width: 64px;
+    height: 64px;
+    color: #fff;
+    font-size: 4rem;
+    padding: 0;
+    line-height: 64px;
+    text-align: center;
+    border: 1px solid #dd191d;
+    background: #e84e40;
+    border-radius:6px;
+    margin-top: 10px;
+}
+.dc-chase-btn:active{
+    background: #c94337;
+}

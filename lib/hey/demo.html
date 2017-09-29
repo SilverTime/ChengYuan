@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹出框组件实例</title>
+    <style>
+        body>div{
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+</head>
+<body>
+<!--<div ms-controller="heyDemo1">-->
+    <!--<tsy:hey config="$opthey"></tsy:hey>-->
+    <button ms-click="openhey0()">单个按钮的成功提示</button>
+    <button ms-click="openhey1()">单个按钮的错误提示</button>
+    <button ms-click="openhey2()">单个按钮的失败提示</button>
+<!--</div>-->
+
+<!--<div ms-controller="heyDemo2">-->
+    <!--<tsy:hey config="$opthey"></tsy:hey>-->
+    <button ms-click="openheyboth()">右侧单回调，左侧为默认取消的提示</button>
+<!--</div>-->
+
+
+<div ms-controller="heyDemo3">
+    <tsy:hey config="$opthey"></tsy:hey>
+    <button ms-click="openhey_both_double()">左右双回调提示按钮</button>
+</div>
+<script>
+//    avalon.ready(function () {
+//        require(['../../lib/hey/hey'], function () {
+//            var vm=avalon.define({
+//                $id:'heyDemo1',
+//                ready: function () {
+//                    avalon.scan()
+//                },
+//                $opthey:{
+//                    id:'hey',
+////                    width:"",
+////                    height:"",
+////                    x:"360",
+//                },
+//                openhey0: function () {
+//                        hey.success("成功","主要提示内容是这样的")
+//                },
+//                openhey1: function () {
+//                        hey.error("错误","主要提示内容是这样的")
+//                },
+//                openhey2: function () {
+//                        hey.fail("失败","主要提示内容是这样的")
+//                },
+//            })
+//
+//            window[vm.$id]=vm
+//            vm.ready()
+//        })
+//    });
+
+
+//both
+/******************************************   both  ****************************************************************/
+
+//    avalon.ready(function () {
+//        require(['../../lib/hey/hey'], function () {
+//            var vm=avalon.define({
+//                $id:'heyDemo2',
+//                ready: function () {
+//                    avalon.scan()
+//                },
+//                $opthey:{
+//                    id:"hey",
+//                    width: "300px",//弹出框宽度
+//                    height: "200px",//弹出框高度
+//                    x: "auto",//左偏移量
+//                    y: "12%",//上偏移量
+//                    state: 0,//弹出框状态值，0为关闭状态，1，介于开启和关闭的状态,2开启状态
+//                    tipType: 'both',//仅当参数为both时，显示为确定和取消
+//                    tipState: 1,//三种状态 0：成功，蓝色    1：错误警告，红色    2:失败,橘黄色
+//                },
+//                openheyboth: function () {
+//                        hey.confirm("指定成功","主要提示内容是这样的",function(){
+//                            alert("这里是回调函数")
+//                        })
+//                }
+//            })
+//
+//            window[vm.$id]=vm
+//            vm.ready()
+//        })
+//    })
+
+
+//    both-own
+/******************************************  both-own  ****************************************************************/
+
+avalon.ready(function () {
+    require(['../../lib/hey/hey'], function () {
+        var vm=avalon.define({
+            $id:'heyDemo3',
+            ready: function () {
+                avalon.scan()
+            },
+            aaa:'a',
+            $opthey:{
+                id:"hey",
+                tipType: 'both_double'     //仅当参数为both时，显示为确定和取消
+            },
+            openhey_both_double: function () {
+                hey.confirmLR("指定成功","这里是提示内容3",
+                    "查看",function(){
+                    alert("这里是左侧的回调函数");
+                        console.info('12:'+this)
+                },
+                    "确认",function(){
+                    alert("这里是右侧的回调函数");
+                })
+            }
+        })
+
+        window[vm.$id]=vm
+        vm.ready()
+    })
+})
+</script>
+</body>
+</html>

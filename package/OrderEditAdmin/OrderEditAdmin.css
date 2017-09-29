@@ -1,0 +1,19 @@
+.Way-Points-Add{
+    position: absolute;
+    right: -2px;
+    font-size: 26px;
+    color: #31b0d5;
+    top: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Way-Points-Del{
+    position: absolute;
+    right: 28px;
+    font-size: 45px;
+    color: #e84e40;
+    top: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,102 @@
+<!--
+    后台订单费用详情 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="OrderBillAdmin">
+    <div class="pop-title">
+        费用详情
+    </div>
+    <div class="row" style="margin: 30px auto;">
+        <div class="col-xs-4">
+            <p>行程类型：{{$Order_Type[details.Type]}}</p>
+            <p>需求车型：{{$Car_Type[details.CarType]}}</p>
+            <p>行程距离：{{details.Mileage}}</p>
+            <p>行程耗时：{{details.PayTime}}</p>
+        </div>
+        <div class="col-xs-4">
+            <p>折扣力度：
+                <span ms-if="details.Driver.User.Company.Discount">{{details.Driver.User.Company.Discount}}&nbsp;%</span>
+                <span ms-if="!details.Driver.User.Company.Discount">暂无信息</span>
+            </p>
+            <p>下单人：{{details.Name}}</p>
+        </div>
+        <div class="col-xs-4">
+            <p>起&nbsp;&nbsp;&nbsp;&nbsp;点：{{beginAddress.Address}}</p>
+            <p>终&nbsp;&nbsp;&nbsp;&nbsp;点：{{endAddress.Address}}</p>
+            <div ms-repeat="otherAddress">
+                <p>路&nbsp;径&nbsp;点：{{el.Address}}</p>
+            </div>
+        </div>
+    </div>
+    <table class="table table-responsive table-bordered" style="margin-bottom: 50px;">
+        <thead class="text-center">
+        <tr>
+            <td>计价编号</td>
+            <td>订单编号</td>
+            <td>计价类型</td>
+            <td>计价时间</td>
+            <td>计价金额(元)</td>
+            <td>计价说明</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="Billings">
+            <td class="text-center">
+                {{el.BillingID}}
+            </td>
+            <td class="text-center">
+                {{el.OrderID}}
+            </td>
+            <td class="text-center">
+                <p ms-if="editBox[$index]===false" >{{$computeType[el.Type]}}</p>
+                <select ms-if="editBox[$index]===true" style="min-width: 80px;" class="form-control" ms-duplex="el.Type">
+                    <option value="2">里程</option>
+                    <option value="1">时间</option>
+                    <option value="3">次</option>
+                </select>
+            </td>
+            <td style="min-width: 80px;">
+                {{el.CTime*1000|date('yyyy-MM-dd HH:mm')}}
+            </td>
+            <td style="min-width: 80px;">
+                 <p  ms-if="editBox[$index]===false" >{{el.Money}}</p>
+                <input ms-if="editBox[$index]===true" type="text" class="form-control" ms-duplex="el.Money">
+            </td>
+
+            <td style="min-width: 240px;">
+                <p ms-if="editBox[$index]===false" >{{el.Memo}}</p>
+                <textarea ms-if="editBox[$index]===true" rows="1" type="text" class="form-control" style="max-width: 240px;"
+                          ms-duplex="el.Memo">
+                </textarea>
+            </td>
+            <td style="min-width: 120px;">
+                <button ms-if="editBox[$index]==false" ms-click="editBill(el.BillingID,$index)" class="btn btn-success btn-sm">
+                    编辑
+                </button>
+                <button ms-if="editBox[$index]==true" ms-click="saveBill(el.BillingID,$index,el.Type,el.Money,el.Memo)"  class="btn btn-primary btn-sm">
+                    保存
+                </button>
+                <button  ms-if="editBox[$index]==false" ms-click="delBill(el.BillingID)" class="btn btn-danger btn-sm">
+                    删除
+                </button>
+                <button  ms-if="editBox[$index]==true" ms-click="cancelIt($index,el.BillingID)" class="btn btn-default btn-sm">
+                    取消
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="7" style="border:none">
+                <button ms-click="addBill" class="col-xs-12 btn btn-success">增加</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <h3 class="text-danger">总费用：{{details.Money}}&nbsp;元</h3>
+        <br><br><br>
+        <button class="btn btn-lg btn-info" ms-click="toInfo">确定</button>
+    </div>
+
+</div>

@@ -1,0 +1,430 @@
+{
+  "nav": [
+    {
+      "name": "后台登录",
+      "en": "adminLogin",
+      "front": true,
+      "bePartOf": "",
+      "only": 0,
+      "pageType": "_Login",
+      "require": []
+    },
+    {
+      "name": "订单列表",
+      "en": "OrderListAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Order_List",
+      "require": []
+    },
+    {
+      "name": "订单审核",
+      "en": "OrderCheckAdmin",
+      "front": true,
+      "bePartOf": "OrderCheckAdmin",
+      "only": 1,
+      "pageType": "Order_List",
+      "require": []
+    },
+    {
+      "name": "后台订单编辑",
+      "en": "OrderEditAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Order_Edit",
+      "require": []
+    },
+    {
+      "name": "后台订单详情",
+      "en": "OrderInfoAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Order_Details",
+      "require": []
+    },
+    {
+      "name": "后台订单费用详情",
+      "en": "OrderBillAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Billing_Details",
+      "require": []
+    },
+    {
+      "name": "后台企业管理",
+      "en": "CompanyListAdmin",
+      "front": true,
+      "bePartOf": "CompanyListAdmin",
+      "only": 1,
+      "pageType": "Company_List",
+      "require": []
+    },
+    {
+      "name": "后台企业编辑",
+      "en": "CompanyEditAdmin",
+      "front": true,
+      "bePartOf": "CompanyListAdmin",
+      "only": 1,
+      "pageType": "Company_Edit",
+      "require": []
+    },
+    {
+      "name": "后台企业详情",
+      "en": "CompanyInfoAdmin",
+      "front": true,
+      "bePartOf": "CompanyListAdmin",
+      "only": 1,
+      "pageType": "Company_Edit",
+      "require": []
+    },
+    {
+      "name": "后台司机管理",
+      "en": "DriverListAdmin",
+      "front": true,
+      "bePartOf": "DriverListAdmin",
+      "only": 1,
+      "pageType": "Drivers_List",
+      "require": []
+    },
+    {
+      "name": "后台司机编辑",
+      "en": "DriverEditAdmin",
+      "front": true,
+      "bePartOf": "DriverListAdmin",
+      "only": 1,
+      "pageType": "Drivers_Edit",
+      "require": []
+    },
+    {
+      "name": "司机车辆列表",
+      "en": "CarListAdmin",
+      "front": true,
+      "bePartOf": "CarListAdmin",
+      "only": 1,
+      "pageType": "Cars_List",
+      "require": []
+    },
+    {
+      "name": "司机车辆信息",
+      "en": "CarInfoAdmin",
+      "front": true,
+      "bePartOf": "DriverListAdmin",
+      "only": 1,
+      "pageType": "Driver_List",
+      "require": []
+    },
+
+    {
+      "name": "后台客户管理",
+      "en": "UserListAdmin",
+      "front": true,
+      "bePartOf": "UserListAdmin",
+      "only": 1,
+      "pageType": "User_List",
+      "require": []
+    },
+    {
+      "name": "后台客户编辑",
+      "en": "UserEditAdmin",
+      "front": true,
+      "bePartOf": "UserListAdmin",
+      "only": 1,
+      "pageType": "User_Edit",
+      "require": []
+    },
+    {
+      "name": "用户绑定",
+      "en": "WSLogin",
+      "front": true,
+      "bePartOf": "",
+      "only": 0,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "司机订单列表",
+      "en": "DriverCenter",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "客户订单列表",
+      "en": "CusCenter",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "下单",
+      "en": "NewOrder",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "订单详情",
+      "en": "OrderInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "司机信息",
+      "en": "DiverInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "编辑司机信息",
+      "en": "EditDiverInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "车辆列表编辑",
+      "en": "EditCarList",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "编辑车辆信息",
+      "en": "EditCarInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    }
+  ],
+  "builded": [
+    {
+      "name": "后台登录",
+      "en": "adminLogin",
+      "front": true,
+      "bePartOf": "",
+      "only": 0,
+      "pageType": "_Login",
+      "require": []
+    },
+    {
+      "name": "订单列表",
+      "en": "OrderListAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Order_List",
+      "require": []
+    },
+    {
+      "name": "订单审核",
+      "en": "OrderCheckAdmin",
+      "front": true,
+      "bePartOf": "OrderCheckAdmin",
+      "only": 1,
+      "pageType": "Order_List",
+      "require": []
+    },
+    {
+      "name": "后台订单编辑",
+      "en": "OrderEditAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Order_Edit",
+      "require": []
+    },
+    {
+      "name": "后台订单详情",
+      "en": "OrderInfoAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Order_Details",
+      "require": []
+    },
+    {
+      "name": "后台订单费用详情",
+      "en": "OrderBillAdmin",
+      "front": true,
+      "bePartOf": "OrderListAdmin",
+      "only": 1,
+      "pageType": "Billing_Details",
+      "require": []
+    },
+    {
+      "name": "后台企业管理",
+      "en": "CompanyListAdmin",
+      "front": true,
+      "bePartOf": "CompanyListAdmin",
+      "only": 1,
+      "pageType": "Company_List",
+      "require": []
+    },
+    {
+      "name": "后台企业编辑",
+      "en": "CompanyEditAdmin",
+      "front": true,
+      "bePartOf": "CompanyListAdmin",
+      "only": 1,
+      "pageType": "Company_Edit",
+      "require": []
+    },
+    {
+      "name": "后台企业详情",
+      "en": "CompanyInfoAdmin",
+      "front": true,
+      "bePartOf": "CompanyListAdmin",
+      "only": 1,
+      "pageType": "Company_Edit",
+      "require": []
+    },
+    {
+      "name": "后台司机管理",
+      "en": "DriverListAdmin",
+      "front": true,
+      "bePartOf": "DriverListAdmin",
+      "only": 1,
+      "pageType": "Drivers_List",
+      "require": []
+    },
+    {
+      "name": "后台司机编辑",
+      "en": "DriverEditAdmin",
+      "front": true,
+      "bePartOf": "DriverListAdmin",
+      "only": 1,
+      "pageType": "Drivers_Edit",
+      "require": []
+    },
+    {
+      "name": "司机车辆列表",
+      "en": "CarListAdmin",
+      "front": true,
+      "bePartOf": "CarListAdmin",
+      "only": 1,
+      "pageType": "Car_List",
+      "require": []
+    },
+    {
+      "name": "后台客户管理",
+      "en": "UserListAdmin",
+      "front": true,
+      "bePartOf": "UserListAdmin",
+      "only": 1,
+      "pageType": "User_List",
+      "require": []
+    },
+    {
+      "name": "后台客户编辑",
+      "en": "UserEditAdmin",
+      "front": true,
+      "bePartOf": "UserListAdmin",
+      "only": 1,
+      "pageType": "User_Edit",
+      "require": []
+    },
+    {
+      "name": "用户绑定",
+      "en": "WSLogin",
+      "front": true,
+      "bePartOf": "",
+      "only": 0,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "司机订单列表",
+      "en": "DriverCenter",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "客户订单列表",
+      "en": "CusCenter",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "下单",
+      "en": "NewOrder",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "订单详情",
+      "en": "OrderInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "司机信息",
+      "en": "DiverInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "编辑司机信息",
+      "en": "EditDiverInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "车辆列表编辑",
+      "en": "EditCarList",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    },
+    {
+      "name": "编辑车辆信息",
+      "en": "EditCarInfo",
+      "front": true,
+      "bePartOf": "",
+      "only": 1,
+      "pageType": "_package",
+      "require": []
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<!--
+    订单管理 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="OrderCheckAdmin" class="OrderCheckAdmin">
+    <!--标题-->
+    <br>
+    <!--<tsy:searchtool config="$optST"></tsy:searchtool>-->
+
+    <!-- 列表-->
+    <br>
+
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>订单编号</td>
+            <td>订单状态</td>
+            <td>类型</td>
+            <td>下单人</td>
+            <td>行程点</td>
+            <td>用车时间</td>
+            <td>里程数</td>
+            <td>联系人</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list">
+            <td>
+                {{el.OrderID}}
+            </td>
+            <td>{{$Order_Status[el.Status]}}</td>
+            <td class="text-info">
+                <span>{{$Order_Type[el.Type]}}</span>
+            </td>
+            <td>{{el.Creator.Name}}</td>
+            <td>
+                    <span ms-if="el.beginAddress" style="font-weight: bold">
+                        {{el.beginAddress}}
+                    </span>
+                <span ms-if="el.otherAddress">
+                        {{el.otherAddress}}
+                    </span>
+                <span ms-if="el.endAddress" style="font-weight: bold">
+                        {{el.endAddress}}
+                    </span>
+            </td>
+            <td>{{el.Time*1000 | date("yyyy-MM-dd HH:mm")}}</td>
+            <td>{{el.Mileage}}</td>
+            <td>{{el.Phone}}</td>
+            <td>
+                <button ms-if="el.Status==='4'" class="btn btn-info btn-xs" ms-click="passIt(el.OrderID,el.SnapDriverID)">
+                    通过
+                </button>
+                <button ms-if="el.Status==='3'||el.Status==='1'" class="btn btn-default btn-xs" ms-click="appointDriver(el.OrderID)">
+                    指派
+                </button>
+            </td>
+        </tr>
+        <tr ms-if="null_status===true">
+            <td colspan="8" style="text-align: center">
+                <div style="font-size: 20px;margin: 20px;">
+                    暂无待审核订单
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- 分页-->
+    <tsy:pager config="$pager"></tsy:pager>
+    <tsy:hey config="$opthey"></tsy:hey>
+
+</div>
+

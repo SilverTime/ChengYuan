@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图组件</title>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+</head>
+<body ms-controller="changeTest">
+
+<div style="width: 100%;height: 400px">
+    <tsy:picchange config="$opt"></tsy:picchange>
+</div>
+
+</body>
+<script>
+    avalon.ready(function () {
+        require(['../../lib/picChange/picChange.js'], function () {
+            var vm = avalon.define({
+                $id: "changeTest",
+                $opt: {
+//                    盒子的宽高
+                    arrowLorR: {
+//                        必须项
+                        left: {src: 'img/切换器左.png'},
+                        right: {src: 'img/切换器右.png'}
+                    },
+                    images: [
+                        // 必须项
+                        {
+                            src: 'img/img-01.jpg',
+                            color: '#ffffff'
+                        }, {
+                            src: 'img/img-02.jpg',
+                            color: '#ffffff'
+                        }, {
+                            src: 'img/img-03.jpg',
+                            color: '#ffffff'
+                        }, {
+                            src: 'img/img-03.jpg',
+                            color: '#ffffff'
+                        }
+                    ],
+                }
+            })
+            avalon.scan()
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!--
+    后台订单编辑 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="AppointDriverAdmin">
+    <div class="pop-title">
+        {{PopPanelName}}
+    </div>
+    <!--<br>-->
+    <!--<tsy:searchtool config="$optST"></tsy:searchtool>-->
+
+    <!-- 列表-->
+    <br>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>司机姓名</td>
+            <td>司机状态</td>
+            <td>最后指派</td>
+            <td>手机号</td>
+            <td>车牌号</td>
+            <td>车辆类型</td>
+            <td>车辆状态</td>
+            <td>操作
+                <!--<label style="font-weight: 600">-->
+                    <!--（微信推送-->
+                    <!--<input id="pushMsg" type="checkbox" checked>-->
+                    <!--）-->
+                <!--</label>-->
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list" ms-visible="el.User.Status!='-1'&&el.Cars.length!==0">
+            <td>{{el.User.Name}}</td>
+            <td>{{el.HasOrder>0?'繁忙':'空闲'}}</td>
+            <td>{{el.LastAssignTime}}</td>
+            <td>{{el.User.Phone}}</td>
+            <td>
+                <p ms-repeat-al="el.Cars">{{al.Number}}</p>
+            </td>
+            <td>
+                <p ms-repeat-al="el.Cars">{{al.Title}}</p>
+            </td>
+            <td>
+                <div ms-repeat-al="el.Cars">
+                    <p ms-if="al.Status==='1'" style="color: #49aaa1;">空闲</p>
+                    <p ms-if="al.Status==='-1'" style="color: #aa3c3b;">维修</p>
+                    <p ms-if="al.Status==='2'" style="color: #28608f;">出行</p>
+                    <p ms-if="al.Status==='-2'" style="color: #bbbbbb;">禁用</p>
+                </div>
+            </td>
+            <td>
+                <p ms-repeat-al="el.Cars">
+                    <button ms-if="al.Status!=='-2'" ms-click="appointTheDriver(el.DriverID,al.CarID,el.User.Name,false)"
+                            class="btn btn-xs btn-default btn-info">
+                        指派
+                    </button>
+                    <button ms-if="al.Status!=='-2'" ms-click="appointTheDriver(el.DriverID,al.CarID,el.User.Name,true)"
+                            class="btn btn-xs btn-default btn-info">
+                        指派并推送
+                    </button>
+
+                    <!--占位空格-->
+                    &nbsp;
+                </p>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>

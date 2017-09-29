@@ -1,0 +1,45 @@
+<!--
+    司机车辆列表 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="CarInfoAdmin">
+    <hr>
+    <h3>司机：{{DriverName}}</h3>
+    <br>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>车辆编号</td>
+            <td>司机编号</td>
+            <td>车型</td>
+            <!--
+            1空闲、-1维修、2出行、-2不可用
+            -->
+            <td>状态</td>
+            <td>颜色</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list">
+            <td>{{el.CarID}}</td>
+            <td>{{DriverID}}</td>
+            <td>{{el.Title}}</td>
+            <td ms-if="el.Status==='1'" style="color: #49aaa1;">空闲</td>
+            <td ms-if="el.Status==='-1'" style="color: #aa3c3b;">维修</td>
+            <td ms-if="el.Status==='2'" style="color: #28608f;">出行</td>
+            <td ms-if="el.Status==='-2'" style="color: #bbbbbb;">禁用</td>
+            <td>{{el.Color}}</td>
+            <td>
+                <button class="btn btn-info btn-xs" ms-click="toCarsEdit(el.CarID)">
+                    修改
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- 分页-->
+    <!--<tsy:pager config="$pager"></tsy:pager>-->
+</div>

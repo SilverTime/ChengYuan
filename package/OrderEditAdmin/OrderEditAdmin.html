@@ -1,0 +1,134 @@
+<!--
+    后台订单编辑 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="OrderEditAdmin">
+    <div class="pop-title">
+        {{PopPanelName}}
+    </div>
+    <br>
+
+    <div class="row">
+
+        <div class="col-xs-4">
+            <label class=" control-label">
+                所属企业：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <select id="company" type="text" class="form-control" ms-duplex="details.CompanyID">
+                <option value="">请选择企业</option>
+                <option ms-repeat="Companies" ms-attr-value="el.CompanyID">{{el.Title}}</option>
+            </select>
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class=" control-label">
+                用&nbsp;车&nbsp;人：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input id="name" type="text" class="form-control" ms-duplex="details.Name" placeholder="请填写用车人姓名">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class=" control-label">
+                联系方式：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input id="phone" type="text" class="form-control" ms-duplex="details.Phone" placeholder="用车人联系方式">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class=" control-label">
+                行程类型：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <select id="type" type="text" class="form-control" ms-duplex="details.Type">
+                <option value="">请选择行程类型</option>
+                <option value="1">短途</option>
+                <option value="2">长途</option>
+                <option value="3">接机</option>
+                <option value="4">包车</option>
+            </select>
+            <br>
+        </div>
+
+
+        <div class="col-xs-4">
+            <label class=" control-label">
+                需求车型：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <select id="cartype" type="text" class="form-control" ms-duplex="details.CarType">
+                <option value="">请选择需求车型</option>
+                <option value="1">A类车</option>
+                <option value="2">B类车</option>
+                <option value="3">C类车</option>
+            </select>
+            <br>
+        </div>
+
+
+        <div class="col-xs-4">
+            <label class=" control-label">
+                用车时间：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input id="time" type="datetime-local" class="form-control" ms-duplex="details.Time">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class=" control-label">
+                起&nbsp;&nbsp;&nbsp;&nbsp;点：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input id="beginaddress" type="text" class="form-control" ms-duplex="beginAddress.Address"
+                   placeholder="起点">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class="control-label">
+                终&nbsp;&nbsp;&nbsp;&nbsp;点：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input id="endaddress" type="text" class="form-control" ms-duplex="endAddress.Address"
+                   placeholder="终点">
+            <br>
+        </div>
+        <div class="col-xs-4" style="position: relative;" ms-repeat="otherAddress">
+            <label class=" control-label">
+                路&nbsp;径&nbsp;点{{$index+1}}：
+            </label>
+            <input type="text" class="form-control" ms-duplex="el.Address" placeholder="添加路径点">
+            <br>
+            <span id="address" ms-if="$last" class="Way-Points-Add" ms-click="addWayPoints">+</span>
+            <span ms-if="!$last" class="Way-Points-Del" ms-click="delWayPoints($index)">-</span>
+        </div>
+
+
+        <div class="col-xs-8">
+
+            <label class=" control-label">
+                其他要求：
+            </label>
+            <input type="text" class="form-control" ms-duplex="details.Memo" placeholder="其他要求">
+            <br>
+        </div>
+        <div style="margin: 20px;text-align: center;clear: both;padding-top: 15px;" ms-if="status!=1">
+            <button class="btn btn-info btn-block" ms-click="add" style="margin-top: 5px;">
+                确定
+            </button>
+        </div>
+
+    </div>
+    <div ms-if="status==1" style="margin: 20px 0;overflow: hidden">
+        <div class="col-xs-8" style="padding: 0 10px 0 0">
+            <button class="btn btn-info btn-block" ms-click="add">
+                确定
+            </button>
+        </div>
+        <div class="col-xs-4" style="padding-left: 20px;padding-right: 0">
+            <button class="btn btn-default btn-block" ms-click="del">删除</button>
+        </div>
+    </div>
+
+</div>

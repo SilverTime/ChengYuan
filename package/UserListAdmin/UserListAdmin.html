@@ -1,0 +1,45 @@
+<!--
+    后台客户管理 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="UserListAdmin">
+<!--标题-->
+    <!--标题-->
+    <br>
+    <button class="pull-right btn btn-info" ms-click="toEdit(0)">添加用户</button>
+    <tsy:searchtool config="$optST"></tsy:searchtool>
+
+    <!-- 列表-->
+    <br>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>客户编号</td>
+            <td>账户名</td>
+            <td>企业名称</td>
+            <td>职务</td>
+            <td>账户状态</td>
+            <td>联系人</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list">
+            <td>{{el.VID}}</td>
+            <td>{{el.Account}}</td>
+            <td>{{el.Company.Title}}</td>
+            <td>{{el.Post}}</td>
+            <td ms-if="el.Status==='1'">正常</td>
+            <td class="text-danger" ms-if="el.Status==='-1'">禁用</td>
+            <td>{{el.Name}} <small>({{el.Phone}})</small></td>
+            <td>
+                <button class="btn btn-xs btn-info" ms-click="toEdit(el.UID)">
+                    编辑
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- 分页-->
+    <tsy:pager config="$pager"></tsy:pager>
+</div>

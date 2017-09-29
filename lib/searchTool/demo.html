@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜索工具条组件</title>
+    <script src="../../src/js/avalon.modern.1.5.min.js"></script>
+</head>
+<body ms-controller="demo">
+
+
+
+<tsy:searchtool config="$opt"></tsy:searchtool>
+
+
+<script>
+    avalon.ready(function () {
+        require(['../../lib/searchTool/searchTool.js'], function () {
+            var vm = avalon.define({
+                $id: 'demo',
+                ready: function () {
+                    avalon.scan()
+                },
+                value:"",
+                $opt: {
+                    Columns:[
+                        {
+                            "Name": "用户编号",
+                            "Code": "UID",
+                            "Comment": false,
+                            "DataType": "int(11)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "BETWEEN",
+                                "NOT BETWEEN",
+                                "IN",
+                                "NOT IN"
+                            ]
+                        },
+                        {
+                            "Name": "账户手机号",
+                            "Code": "Phone",
+                            "Comment": false,
+                            "DataType": "char(50)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "账户名",
+                            "Code": "Account",
+                            "Comment": false,
+                            "DataType": "char(50)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "账户密码",
+                            "Code": "PWD",
+                            "Comment": false,
+                            "DataType": "char(250)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "注册时间",
+                            "Code": "CTime",
+                            "Comment": false,
+                            "DataType": "int(10)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "注册地址",
+                            "Code": "CIP",
+                            "Comment": false,
+                            "DataType": "int(11)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "注册方式",
+                            "Code": "CType",
+                            "Comment": false,
+                            "DataType": "tinyint(1)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "姓名",
+                            "Code": "Name",
+                            "Comment": false,
+                            "DataType": "char(50)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": false,
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "企业编号",
+                            "Code": "CompanyID",
+                            "Comment": false,
+                            "DataType": "int(11)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "账户状态",
+                            "Code": "Status",
+                            "Comment": false,
+                            "DataType": "tinyint(1)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "性别",
+                            "Code": "Sex",
+                            "Comment": false,
+                            "DataType": "tinyint(1)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": "1",
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        },
+                        {
+                            "Name": "微信openid",
+                            "Code": "OpenID",
+                            "Comment": false,
+                            "DataType": "char(50)",
+                            "Length": [
+                                "11"
+                            ],
+                            "Must": false,
+                            "Default": "",
+                            "Editable": false,
+                            "Hidden": false,
+                            "GetBy": false,
+                            "SearchBy": false,
+                            "RegExp": "",
+                            "QureyExp":[
+                                "EQ",
+                                "NEQ",
+                                "GT",
+                                "EGT",
+                                "LT",
+                                "ELT",
+                                "LIKE",
+                                "[NOT] BETWEEN",
+                                "[NOT] IN",
+                                "EXP"
+                            ]
+                        }
+                    ],
+                    callback: function (W) {
+                        console.log(W)
+                    }
+                },
+            })
+
+            window[vm.$id] = vm
+            vm.ready()
+        })
+    })
+</script>
+</body>
+</html>

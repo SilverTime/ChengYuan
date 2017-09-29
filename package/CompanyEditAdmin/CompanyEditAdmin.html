@@ -1,0 +1,93 @@
+<!--
+    后台企业编辑 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="CompanyEditAdmin">
+    <div class="pop-title">
+        {{PopPanelName}}
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <label class=" control-label" >
+                企业名称：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input name="CompanyTitle" ms-duplex="details.Title" type="text" class="form-control" placeholder="企业名称">
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class=" control-label">
+                结算联系人：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input name="CompanyContactor" ms-duplex="details.Contactor" type="text" class="form-control" placeholder="企业联系人姓名">
+            <br>
+        </div>
+
+        <div class="col-xs-4" style="position: relative;">
+            <label class=" control-label">
+                折扣力度：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input name="CompanyDiscount" ms-duplex="details.Discount" type="text" class="form-control" maxlength="10" placeholder="区间0-100.00">
+            <div style="position: absolute;right: 20px;top: 26px;text-align: center;border-left: 1px solid #ddd;
+    width: 30%;height: 32px;line-height: 32px">%
+            </div>
+            <br>
+        </div>
+        <div class="col-xs-4">
+            <label class=" control-label">
+                企业类型：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <select name="CompanyType" ms-duplex="details.Type" type="text" class="form-control">
+                <option value="">选择企业类型</option>
+                <option value="1">客户企业</option>
+                <option value="2">管理企业</option>
+                <option value="3">服务供应企业</option>
+            </select>
+            <br>
+        </div>
+
+        <div class="col-xs-4">
+            <label class=" control-label">
+                联系电话：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input name="CompanyPhone" ms-duplex="details.Phone" type="text" class="form-control" placeholder="联系电话">
+            <br>
+        </div>
+
+        <div class="col-xs-8">
+            <label class=" control-label">
+                企业地址：
+                <small class="text-danger">(必填)</small>
+            </label>
+            <input name="CompanyAddress" ms-duplex="details.Address" type="text" class="form-control"  placeholder="填写地址">
+            <br>
+        </div>
+        <div class="col-xs-4" ms-if="status==0">
+            <br>
+            <button class="btn btn-info btn-block " ms-click="add" style="margin-top: 5px;">
+                确定
+            </button>
+        </div>
+        <div class="col-xs-2" ms-if="status==1">
+            <br>
+            <button class="btn btn-info btn-block " ms-click="add" style="margin-top: 5px;">
+                保存
+            </button>
+        </div>
+        <div class="col-xs-2" ms-if="status==1">
+            <br>
+            <button class="btn btn-link btn-block" ms-click="del" style="margin-top: 5px;" ms-if="details.CompanyID>3">
+                删除企业
+            </button>
+        </div>
+
+    </div>
+
+
+</div>

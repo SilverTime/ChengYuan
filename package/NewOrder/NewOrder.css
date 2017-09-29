@@ -1,0 +1,26 @@
+/*
+下单 外在肌肤，水嫩丝滑
+生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+*/
+.NewOrder{
+
+}
+.route{
+    margin-top: 20px;
+}
+
+.NewOrder input,.NewOrder .btn-add,.NewOrder select{
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.route>div{
+    position: relative;
+}
+
+.route .icon-remove-sign{
+    color:#e14045;
+    position: absolute;
+    top:3px;
+    right: 3px;
+}

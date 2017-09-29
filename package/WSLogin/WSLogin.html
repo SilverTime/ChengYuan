@@ -1,0 +1,59 @@
+<!--
+    用户绑定 核心骨架，百折不挠
+    生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="WSLogin">
+    <div class="container" style="background: #528dbc;color:#fff">
+        <h1>
+            成远商务 <br>
+            <small style="color:#ddd" ms-if="state==0">
+                用户注册
+
+            </small>
+            <small style="color:#ddd" ms-if="state==1">
+                司机登录
+            </small>
+        </h1>
+
+    </div>
+
+
+    <div class="container" >
+        <div class="row">
+            <div class="col-xs-12 input-box">
+                <i class="input-icon glyphicon glyphicon-phone"></i>
+                <input type="tel" class="form-control" ms-duplex="Phone" placeholder="请输入手机号码">
+            </div>
+            <div class="col-xs-12 input-box">
+                <i class="input-icon resize-small glyphicon glyphicon-exclamation-sign"></i>
+                <input type="text" class="form-control" ms-duplex="Verify" placeholder="请输入验证码">
+                <button class="btn input-btn" ms-if="verTimeout<=0" ms-click="sendVerify()">获取验证码</button>
+                <button class="btn input-btn" ms-if="verTimeout>0" disabled>{{verTimeout}}s 后重发</button>
+            </div>
+
+            <!--登录所用-->
+            <div class="col-xs-6" style="margin-top: 20px" ms-if="state==1">
+                <a href="#!/WSLogin/0" class="btn btn-block btn-link ">用户注册</a>
+
+            </div>
+            <div class="col-xs-6" style="margin-top: 20px;" ms-if="state==1">
+                <button class="btn btn-info col-xs-12" ms-click="driverLogin" >司机登录</button>
+            </div>
+
+
+            <!--注册所用-->
+            <div class="col-xs-12" style="margin-top: 20px;" ms-if="state==0">
+                <input type="text" class="form-control" placeholder="姓名" ms-duplex="Name">
+            </div>
+            <div class="col-xs-6" style="margin-top: 20px" ms-if="state==0">
+                <a href="#!/WSLogin/1" class="btn btn-block btn-link ">司机登录</a>
+
+            </div>
+            <div class="col-xs-6" style="margin-top: 20px;" ms-if="state==0">
+                <button class="btn btn-info col-xs-12" ms-click="reg()">用户注册</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+<table class="table" style="margin-bottom: 0px">
+    <thead style="background-color: #f4f4f4">
+    <tr>
+
+        <td>
+            车牌
+        </td>
+        <td>
+            颜色
+        </td>
+        <td>
+            车型
+        </td>
+        <td>
+            状态
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="l-s-i"
+        ms-repeat-el="list" ms-class="now-active:active==$index"
+        ms-click="select($index)" ms-on-hover="hover($index)">
+
+
+        <td>
+            {{el.Number}}
+        </td>
+        <td>
+            {{el.Color}}
+        </td>
+        <td>
+            {{el.Title}}
+        </td>
+        <td>
+            <span ms-if="el.Status==1">空闲</span>
+            <span ms-if="el.Status==-1">维修</span>
+            <span ms-if="el.Status==2">出行</span>
+            <span ms-if="el.Status==-2">不可用</span>
+
+        </td>
+    </tr>
+    </tbody>
+</table>

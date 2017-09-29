@@ -1,0 +1,74 @@
+<!--
+    司机订单列表 核心骨架，百折不挠
+    生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="DiverInfo" class="DiverInfo">
+    <div class="order-list-top">
+        <div class="ol-top-imgbox">
+            <img src="" class="img-circle" alt="用户头像">
+        </div>
+        <div class="ol-top-right">
+            <h3>xxx</h3>
+            <h5>部门名称：xxx</h5>
+        </div>
+    </div>
+    <div class="order-list-tab">
+        <button ms-click="orderList" ms-class="ol-tab-now:tab_which==='left'" class="ol-tab-btn ol-btn-l">我的信息</button>
+        <button ms-click="orderChase" ms-class="ol-tab-now:tab_which==='right'" class="ol-tab-btn ol-btn-r">我的车辆
+        </button>
+    </div>
+
+    <!--订单信息-->
+    <div class="order-list-main" ms-visible="tab_which==='left'">
+        <div class="order-each">
+            <div class="ol-each-l col-xs-12">
+                <span>姓名：XXX</span><br>
+                <span>性别：X</span><br>
+                <span>年龄：XX</span><br>
+                <span>联系方式：XX</span><br>
+                <span>家庭住址：XX</span>
+            </div>
+        </div>
+
+        <div class="order-each">
+            <div class="ol-each-l col-xs-12">
+                <span>抢单数：XXX</span><br>
+                <span>接单数：X</span><br>
+            </div>
+            <div class="ol-each-l col-xs-12">
+                <h4 style="color: #26c6da;font-weight: bold">
+                    总提款：XXX
+                </h4>
+                <h4 style="color: #26c6da;margin-top: 10px;font-weight: bold">
+                    应提款：XXX
+                </h4>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <a href="#!/EditDiverInfo/el.DriverID">
+            <button class="btn btn-info" style="margin-top: 20px;width: 100%;">编辑</button>
+            </a>
+        </div>
+    </div>
+    <!--抢单-->
+    <div class="order-list-main" ms-visible="tab_which==='right'">
+        <div class="order-each">
+            <div class="ol-each-l col-xs-8">
+                <span>车型：XXX</span><br>
+                <span>车牌号：XXX</span><br>
+                <span>颜色：XXX</span>
+            </div>
+            <div class="ol-each-r col-xs-4">
+                <label>空闲</label>
+                <a href="#!/EditCarInfo/el.CarID&&el.DriverID">
+                    <button class="btn btn-info btn-sm ol-btn-imt">编辑</button>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <a href="#!/EditCarInfo/0&&el.DriverID">
+                <button class="btn btn-info" style="margin-top: 20px;width: 100%;">增加</button>
+            </a>
+        </div>
+    </div>
+</div>

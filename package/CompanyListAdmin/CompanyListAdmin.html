@@ -1,0 +1,62 @@
+<!--
+    后台企业管理 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="CompanyListAdmin">
+    <!--标题-->
+    <br>
+    <button class="pull-right btn btn-info" ms-click="toCompanyEdit(0)">添加企业</button>
+    <tsy:searchtool config="$optST"></tsy:searchtool>
+
+    <!-- 列表-->
+    <br>
+
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>编号</td>
+            <!--<td>企业类型</td>-->
+            <td>企业名称</td>
+            <td class="text-info">企业欠款</td>
+            <td>折扣力度</td>
+            <td>结算联系人</td>
+            <td>企业地址</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list">
+            <td>
+                {{el.CompanyID}}
+            </td>
+            <!--<td>-->
+                <!--<span ms-if="el.Type==1">客户企业</span>-->
+                <!--<span ms-if="el.Type==2">管理企业</span>-->
+                <!--<span ms-if="el.Type==3">服务供应企业</span>-->
+            <!--</td>-->
+            <td>{{el.Title}}</td>
+            <td class="text-info">￥{{Number(el.Debt).toFixed(2)}}</td>
+            <td>{{el.Discount}}&nbsp;%</td>
+            <td>{{el.Contactor}}
+                <small>({{el.Phone}})</small>
+            </td>
+            <td style="max-width: 400px;">{{el.Address}}</td>
+            <td>
+                <button class="btn btn-info btn-xs" ms-click="toCompanyEdit(el.CompanyID)">
+                    编辑
+                </button>
+                <a ms-attr-href="#!/OrderListAdmin/{{el.CompanyID}}" class="btn btn-default btn-xs">
+                    订单
+                </a>
+                <a ms-attr-href="#!/UserListAdmin/{{el.CompanyID}}" class="btn btn-default btn-xs">
+                    客户
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- 分页-->
+    <tsy:pager config="$pager"></tsy:pager>
+</div>

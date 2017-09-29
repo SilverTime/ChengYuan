@@ -1,0 +1,60 @@
+<!--
+    后台司机管理 核心骨架，百折不挠
+    生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="DriverListAdmin" class="DriverListAdmin">
+<!--标题-->
+    <br>
+       <button class="pull-right btn btn-info" ms-click="toEdit(0)">添加司机</button>
+    <tsy:searchtool config="$optST"></tsy:searchtool>
+
+    <!-- 列表-->
+    <br>
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>司机编号</td>
+            <td>司机状态</td>
+            <td>最后指派</td>
+            <!--<td>账户名</td>-->
+            <td>司机姓名</td>
+            <!--<td>性别</td>-->
+            <td>账户状态</td>
+            <td>车辆</td>
+            <td>联系方式</td>
+            <td>地址</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list">
+            <td>{{el.User.VID}}</td>
+            <td>{{el.HasOrder>0?'繁忙':'空闲'}}</td>
+            <td>{{el.LastAssignTime}}</td>
+            <!--<td>{{el.User.Account}}</td>-->
+            <td>{{el.User.Name}}</td>
+            <!--<td>{{sex[el.User.Sex]}}</td>-->
+            <!--<td  class="text-warning:el.User.Status==='-1'" >{{DS[el.User.Status]}}</td>-->
+            <td ms-if="el.User.Status==='1'">正常</td>
+            <td class="text-danger" ms-if="el.User.Status==='-1'">禁用</td>
+            <td>
+                <a class="btn btn-xs btn-info" ms-attr-href="#!/CarInfoAdmin/{{el.DriverID}}" ms-if="el.Cars.length>0">
+                {{el.Cars.length}}&nbsp;  辆
+            </a>
+                <a class="btn btn-xs btn-warning" ms-if="el.Cars.length<=0">
+                    0&nbsp; 辆
+                </a>
+            </td>
+            <td>{{el.User.Phone}}</td>
+            <td>{{el.User.Company.Address}}</td>
+            <td>
+                <button class="btn btn-xs btn-info" ms-click="toEdit(el.DriverID,el.UID)">
+                    编辑
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- 分页-->
+    <tsy:pager config="$pager"></tsy:pager>
+</div>

@@ -1,0 +1,73 @@
+/*
+后台登录 外在肌肤，水嫩丝滑
+生成时间：Sat Oct 08 2016   破门狂人R2-D2为您服务！
+*/
+
+.name {
+    margin-left: 420px;
+}
+
+#login {
+    margin-left: 115px;
+    color: #9d9d9d;
+}
+
+.login {
+    margin: 90px auto 0px auto;
+    max-width: 300px;
+}
+
+.login-msg {
+    padding-top: 5px;
+    font-size: 16px;
+    color: #428bca;
+    float: right;
+}
+
+.login-msg:hover, .login-msg:active {
+    cursor: pointer;
+}
+
+.login-get-code {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    color: #fff;
+    border: 1px solid #cccccc;
+    border-radius: 0 4px 4px 0;
+    background: #f0ad4e;
+}
+
+.login-get-code:hover, .login-get-code:active {
+    background: #d58512;
+}
+
+.login-wait-code {
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    color: #111;
+    border: 1px solid #cccccc;
+    border-radius: 0 4px 4px 0;
+    background: #cccccc;
+}
+
+.login input {
+    margin: 20px auto;
+    height: 40px;
+    max-width: 300px;
+    width: 100%;
+}
+
+/*在chrome下移除input[number]的上下箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+/*在firefox下移除input[number]的上下箭头*/
+input[type="number"]{-moz-appearance:textfield;}

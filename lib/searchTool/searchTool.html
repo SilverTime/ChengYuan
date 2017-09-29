@@ -1,0 +1,32 @@
+<!--
+    searchTool 核心骨架，百折不挠
+    生成时间：Wed Sep 28 2016   破门狂人R2-D2为您服务！
+-->
+
+<!--添加工具条-->
+<div class="st-tool">
+    <select name="" class="st-select" ms-duplex="adding.key" ms-on-input="selectKey(this)">
+        <option value="">选择属性</option>
+        <option ms-repeat="Columns" ms-attr-value="el.Code">{{el.Name}}</option>
+    </select>
+    <select name="" class="st-select" ms-duplex="adding.exp">
+        <option value="">选择判断条件</option>
+        <option ms-repeat="adding.exps"
+                ms-attr-value="el">
+            {{expNames[el]}}
+        </option>
+    </select>
+    <input class="st-input" type="text" ms-duplex="adding.val" placeholder="输入需要匹配的值">
+    <button class="st-btn" ms-on-click="add">添加筛选条件</button>
+</div>
+
+&nbsp;
+<tsy:switch config="$opt_switch"></tsy:switch>
+
+<div>
+    <div class="st-exp-item" ms-repeat="keys">
+        {{el.name}} {{expNames[el.exp]}} {{el.val}}
+        <span  ms-click="del($index)">×</span>
+    </div>
+    <div style="clear: both"></div>
+</div>

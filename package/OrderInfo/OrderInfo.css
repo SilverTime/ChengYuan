@@ -1,0 +1,58 @@
+/*
+订单详情 外在肌肤，水嫩丝滑
+生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+*/
+.OrderInfo {
+    padding:10px 20px;
+    background: #fff;
+    box-sizing: border-box;
+
+    font-size: 1.5rem;
+    line-height: 1.3rem;
+}
+.ol-info-list{
+    overflow: hidden;
+}
+
+.ol-find-detail {
+    background: #29b6f6;
+    width: 50%;
+    border-radius: 6px;
+    /*font-size: 1.6rem!important;*/
+}
+
+.ol-btn-aline {
+    width: 100%;
+    background: #26c6da;
+    margin-top: 25px;
+    /*font-size: 2rem!important;*/
+    border-radius: 6px;
+}
+.zg-space{
+    margin-right: 27px;
+}
+
+.ol-detail-show{
+    padding:20px 0 10px 80px;
+    text-align: left;
+}
+
+.ol-Way-Points-Add{
+    position: absolute;
+    right: -2px;
+    font-size: 26px;
+    color: #31b0d5;
+    top: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ol-Way-Points-Del{
+    position: absolute;
+    right: 1px;
+    font-size: 45px;
+    color: #e84e40;
+    top: 23px;
+    font-weight: bold;
+    cursor: pointer;
+}

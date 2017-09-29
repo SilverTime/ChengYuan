@@ -1,0 +1,67 @@
+<!--
+    司机订单列表 核心骨架，百折不挠
+    生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="DriverCenter" class="DriverCenter">
+    <div class="order-list-top">
+        <div class="dc-top-imgbox">
+            <img ms-attr-src="cache.go('Avatar')" class="img-circle" alt="用户头像">
+        </div>
+        <div class="dc-top-right">
+            <h3>{{info.User.Name}}</h3>
+            <h5>部门名称：{{info.User.Company.Title}}</h5>
+        </div>
+    </div>
+    <div class="order-list-tab">
+        <button ms-click="orderList" ms-class="dc-tab-now:tab_which==='left'" class="dc-tab-btn dc-btn-l">订单</button>
+        <button ms-click="orderChase" ms-class="dc-tab-now:tab_which==='right'" class="dc-tab-btn dc-btn-r">抢单</button>
+    </div>
+
+    <!--订单信息-->
+    <div class="order-list-main" ms-if="tab_which==='left'">
+            <div ms-if="list.length!==0" class="dc-order-each" ms-if="tab_which==='left'&&RS===true" ms-repeat="list" ms-if="el.Status==='1'">
+                <div class="dc-each-l col-xs-8">
+                    <span>时间：{{el.Time*1000|date('yyyy-MM-dd hh:mm')}}</span><br>
+                    <span ms-if="el.Routers.length>0">从&nbsp;{{el.beginAddress}}&nbsp;到&nbsp;{{el.endAddress}}</span>
+                    <span ms-if="el.Routers.length==0">未知路径</span>
+                    <br>
+                    <span>需求车型：&nbsp;{{$carDic[el.CarType]}}</span>
+                </div>
+                <div class="dc-each-r col-xs-4">
+                    <p ms-if="el.Status!=='7'&&el.Status!=='8'">待处理</p>
+                    <p style="color: #ec971f;" ms-if="el.Status==='7'">待结算</p>
+                    <p style="color: #f1f1f1;" ms-if="el.Status==='8'">已结算</p>
+                    <button ms-click="MyOrdersInfo(el.OrderID)" class="btn btn-info btn-sm dc-btn-imt">详情</button>
+                </div>
+        </div>
+        <div class="text-center" ms-if="list.length===0">
+            <h4>暂无已接订单，快去抢单看看吧</h4>
+        </div>
+    </div>
+    <!--抢单信息-->
+    <div class="order-list-main" ms-if="tab_which==='right'">
+        <div ms-if="list.length===0" class="dc-order-each" ms-repeat="list" ms-if="RS===true">
+            <div class="dc-each-l col-xs-8">
+                <span>时间：{{el.Time*1000|date('yyyy-MM-dd hh:mm')}}</span><br>
+                <span ms-if="el.Routers.length>0">从&nbsp;{{el.beginAddress}}&nbsp;到&nbsp;{{el.endAddress}}</span>
+                <span ms-if="el.Routers.length==0">未知路径</span>
+                <br>
+                <span>需求车型：&nbsp;{{$carDic[el.CarType]}}</span>
+            </div>
+            <div class="dc-each-r col-xs-4">
+                <button class="dc-chase-btn" ms-click="snap(el.OrderID)">抢</button>
+            </div>
+        </div>
+        <div class="text-center" ms-if="list.length===0">
+            <h4>暂无可抢订单哦！</h4>
+        </div>
+    </div>
+
+
+
+    <br>
+    <button class="btn btn-block btn-default" ms-click="getDriverOrder(Number(P)+1)" ms-if="T>P*N">
+        更多……
+    </button>
+    <tsy:hey config="$opthey"></tsy:hey>
+</div>

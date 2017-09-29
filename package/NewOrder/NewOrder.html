@@ -1,0 +1,94 @@
+<!--
+    下单 核心骨架，百折不挠
+    生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="NewOrder" class='container NewOrder'>
+    <!--路径点-->
+    <div class="route">
+        <div>
+            <input type="text" class="form-control" placeholder="输入起点" ms-duplex="beginAddress.Address">
+            <!--<i class="icon-map-marker icon-2x"></i>-->
+        </div>
+        <div ms-repeat="otherAddress">
+            <input type="text" class="form-control" placeholder="途经点"  ms-duplex="el.Address">
+            <i class="icon-remove-sign icon-2x " ms-click="delRoute($index)"></i>
+        </div>
+
+        <button class="btn btn-block btn-add" ms-click="addRoute">添加途经点</button>
+        <div>
+            <input type="text" class="form-control" placeholder="输入终点" ms-duplex="endAddress.Address">
+            <!--<i class="icon-map-marker icon-2x"></i>-->
+        </div>
+
+    </div>
+    <hr>
+    <!--订单信息-->
+    <div>
+        <div class="row">
+            <div class="col-xs-4 " style="line-height: 34px">
+                客户姓名：
+            </div>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" ms-duplex="details.Name" ms-if="!UID>0">
+                <input type="text" class="form-control" ms-duplex="details.Name" ms-if="UID>0" disabled>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 " style="line-height: 34px">
+                联系电话：
+            </div>
+            <div class="col-xs-8">
+
+                <input type="text" class="form-control" ms-duplex="details.Phone" ms-if="!UID>0">
+                <input type="text" class="form-control" ms-duplex="details.Phone" ms-if="UID>0" disabled>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 " style="line-height: 34px">
+                用车时间：
+            </div>
+            <div class="col-xs-8">
+                <input id="time" type="datetime-local" class="form-control" ms-duplex="details.Time">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 " style="line-height: 34px">
+                需求车型：
+            </div>
+            <div class="col-xs-8">
+                <select type="text" class="form-control" ms-duplex="details.CarType">
+                    <option value="">选择车型</option>
+                    <option ms-attr-value="$index" ms-repeat="$carDic">{{$val}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 " style="line-height: 34px">
+                需求数量：
+            </div>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" ms-duplex="details.CarAmount">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 " style="line-height: 34px">
+                行程类型：
+            </div>
+            <div class="col-xs-8">
+                <select type="text" class="form-control" ms-duplex="details.Type">
+                    <option value="">选择行程类型</option>
+                    <option ms-repeat="$TypeDic" ms-attr-value="$key">{{$val}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 " style="line-height: 34px">
+                其他需求：
+            </div>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" ms-duplex="details.Memo">
+            </div>
+        </div>
+        <button class="btn btn-block btn-info" ms-click="add">下单</button>
+    </div>
+</div>

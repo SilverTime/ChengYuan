@@ -1,0 +1,2733 @@
+{
+  "obj": [
+    {
+      "Name": "订单",
+      "Code": "order",
+      "Comment": "订单来源：1微信、2人工(电话或其他方式)\n事由由管理员手工录入\n超过100公里算长途，自动计价，允许修改\n抢单由管理人员发出，自动发送给拥有目标车型的司机账号\n抢单成功后有管理员审核通过后通知司机和乘客及下单人\n下单人和乘车人可能不一致\n订单归属企业默认为下单人所在企业，管理员可更改归属企业。\n订单类型：1短途、2长途、3接机、4包车\n成功指派司机后允许修改指派司机",
+      "I": "OrderID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "订单编号",
+          "Code": "OrderID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "订单来源",
+          "Code": "FromID",
+          "Comment": "微信、电话\n",
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "下单纬度",
+          "Code": "Longitude",
+          "Comment": false,
+          "DataType": "double(15,3)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "下单经度",
+          "Code": "Latitude",
+          "Comment": false,
+          "DataType": "double(15,3)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "下单时间",
+          "Code": "CTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业编号",
+          "Code": "CompanyID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "下单人编号",
+          "Code": "CUID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "用车人电话",
+          "Code": "Phone",
+          "Comment": "默认为下单人电话",
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "用车人",
+          "Code": "Name",
+          "Comment": "默认为下单人姓名",
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "用车时间",
+          "Code": "Time",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "需求数量",
+          "Code": "CarAmount",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "需求车型",
+          "Code": "CarType",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "其他需求描述",
+          "Code": "Memo",
+          "Comment": false,
+          "DataType": "varchar(1000)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "抢单发布时间",
+          "Code": "SnapSendTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "订单状态",
+          "Code": "Status",
+          "Comment": "已下单，待抢单\n已下单，待派单\n抢单成功，等待审核\n审核成功\n指派成功\n",
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "抢单司机编号",
+          "Code": "SnapDriverID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "抢单时间",
+          "Code": "SnapTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "抢单审核人",
+          "Code": "SnapJudgeUID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "抢单审核时间",
+          "Code": "SnapJudgeTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "抢单审核结果",
+          "Code": "SnapJudteResult",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "指派人",
+          "Code": "AssignUID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "指派时间",
+          "Code": "AssignTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "指派司机编号",
+          "Code": "AssignDriverID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "行程开始时间",
+          "Code": "StartTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "行程结束时间",
+          "Code": "EndTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "行程费用",
+          "Code": "Money",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "服务评价",
+          "Code": "Evaluate",
+          "Comment": false,
+          "DataType": "varchar(1000)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "里程数",
+          "Code": "Mileage",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "订单结算时间",
+          "Code": "PayTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "出行原因",
+          "Code": "Reason",
+          "Comment": false,
+          "DataType": "varchar(1000)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "订单类型",
+          "Code": "Type",
+          "Comment": "长途、短途、接机",
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "客户企业信息",
+      "Code": "company",
+      "Comment": "设定企业欠款提醒额度，达到额度规定的做出提示。\n结算方式为线下手工结算。\n在订单管理中按条件筛选后批量结算。\n所有账号必须归属企业，\n企业类型分：1客户企业，2管理企业，3司机所在企业\n里程单价和时长单价只针对短途有效",
+      "I": "CompanyID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "企业编号",
+          "Code": "CompanyID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业地址",
+          "Code": "Address",
+          "Comment": false,
+          "DataType": "char(250)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业联系人",
+          "Code": "Contactor",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业名称",
+          "Code": "Title",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业添加时间",
+          "Code": "CTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业总计消费",
+          "Code": "Sum",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业欠款",
+          "Code": "Debt",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业添加人",
+          "Code": "CUID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业类型",
+          "Code": "Type",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "里程单价",
+          "Code": "PerMileage",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "时长单价",
+          "Code": "PerHour",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "用户账户",
+      "Code": "user",
+      "Comment": "首次客户注册通过手机注册，无需绑定到企业\n由工作人员绑定到企业\n账户状态：-1禁用，1正常\n性别：1男，0女\n客户登录第一次时用手机验证码绑定到微信\n之后从微信自动登录\n若其他地方登录则手机号+短信验证码登录",
+      "I": "UID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "账户手机号",
+          "Code": "Phone",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "账户名",
+          "Code": "Account",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "账户密码",
+          "Code": "PWD",
+          "Comment": false,
+          "DataType": "char(250)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "注册时间",
+          "Code": "CTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "注册地址",
+          "Code": "CIP",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "注册方式",
+          "Code": "CType",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "姓名",
+          "Code": "Name",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "企业编号",
+          "Code": "CompanyID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "账户状态",
+          "Code": "Status",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "性别",
+          "Code": "Sex",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "微信openid",
+          "Code": "OpenID",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": false,
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "司机信息",
+      "Code": "drivers",
+      "Comment": "一个司机能有多个车型\n司机状态：1在线、-1离线、2行程中。\n行程中司机无法抢单但可以接受指派订单",
+      "I": "DriverID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "司机编号",
+          "Code": "DriverID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "用户编号",
+          "Code": "UID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "抢单数",
+          "Code": "SnapAmount",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "接单数",
+          "Code": "AccessAmount",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "总提款",
+          "Code": "SumMoney",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "应提款",
+          "Code": "Debt",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "司机状态",
+          "Code": "Status",
+          "Comment": "在线、离线、行程中。\n行程中司机无法抢单但可以接受指派订单\n",
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "系统操作记录",
+      "Code": "system_log",
+      "Comment": false,
+      "I": "LID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "记录编号",
+          "Code": "LID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "操作接口",
+          "Code": "Interface",
+          "Comment": false,
+          "DataType": "char(250)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "操作人",
+          "Code": "UID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "操作时间",
+          "Code": "Time",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "响应结果",
+          "Code": "Result",
+          "Comment": false,
+          "DataType": "varchar(1000)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "车辆库",
+      "Code": "cars",
+      "Comment": "所有车辆全部登记在此，\n车辆状态：1空闲、-1维修、2出行、-2不可用",
+      "I": "CarID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "车辆编号",
+          "Code": "CarID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "车型",
+          "Code": "Title",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "车牌号",
+          "Code": "Number",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "颜色",
+          "Code": "Color",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "车辆状态",
+          "Code": "Status",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "司机车辆",
+      "Code": "driver_car_link",
+      "Comment": "一个司机可以有权驾驶多个车辆，\n一个车辆也可以被多个司机驾驶\n",
+      "I": "LID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "记录编号",
+          "Code": "LID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "车辆编号",
+          "Code": "CarID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "司机编号",
+          "Code": "DriverID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "订单行程",
+      "Code": "router",
+      "Comment": "行程类型有 1起点，2中转点，3终点。\n用户在下单时要可以无限添加路径并可选填写路径时间\n路径时间的意思是到达该路径点的时间要求\n",
+      "I": "RouteID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "行程编号",
+          "Code": "RouteID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "订单编号",
+          "Code": "OrderID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "行程点",
+          "Code": "Address",
+          "Comment": false,
+          "DataType": "char(50)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "预期时间",
+          "Code": "Time",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "行程类型",
+          "Code": "TypeID",
+          "Comment": "起点，中转，终点",
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "订单计价信息",
+      "Code": "billing",
+      "Comment": "计价类型：1时间，2里程，3次\n计价说明中填写该价格的备注，\n该表中数据自动生成，允许用户修改：类型、价格、说明",
+      "I": "BillingID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "计价编号",
+          "Code": "BillingID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "订单编号",
+          "Code": "OrderID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "计价类型",
+          "Code": "Type",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "计价值",
+          "Code": "Money",
+          "Comment": false,
+          "DataType": "double(10,2)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "计价说明",
+          "Code": "Memo",
+          "Comment": false,
+          "DataType": "char(250)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "计价时间",
+          "Code": "CTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "订单状态",
+      "Code": "order_status",
+      "Comment": "当订单状态变更时存储变更情况",
+      "I": "StatusID",
+      "ModuleName": null,
+      "Columns": [
+        {
+          "Name": "状态编号",
+          "Code": "StatusID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "订单编号",
+          "Code": "OrderID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "状态码",
+          "Code": "Status",
+          "Comment": false,
+          "DataType": "tinyint(1)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "状态备注",
+          "Code": "Memo",
+          "Comment": false,
+          "DataType": "varchar(1000)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "状态时间",
+          "Code": "CTime",
+          "Comment": false,
+          "DataType": "int(10)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        },
+        {
+          "Name": "状态人",
+          "Code": "CUID",
+          "Comment": false,
+          "DataType": "int(11)",
+          "Length": [
+            "11"
+          ],
+          "Must": "1",
+          "Default": "",
+          "Editable": false,
+          "Hidden": false,
+          "GetBy": false,
+          "SearchBy": false,
+          "RegExp": "",
+          "QureyExp": [
+            "EQ",
+            "NEQ",
+            "GT",
+            "EGT",
+            "LT",
+            "ELT",
+            "LIKE",
+            "BETWEEN",
+            "NOT BETWEEN",
+            "IN",
+            "NOT IN"
+          ]
+        }
+      ]
+    }
+  ]
+}

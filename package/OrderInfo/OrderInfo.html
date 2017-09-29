@@ -1,0 +1,157 @@
+<!--
+    订单详情 核心骨架，百折不挠
+    生成时间：Fri Nov 11 2016   破门狂人R2-D2为您服务！
+-->
+<div ms-controller="OrderInfo" class="OrderInfo">
+    <!--客户-->
+    <div ms-if="info.Driver.UID!=DriverID">
+        <h4 style="font-weight: bold">用车人：{{info.Name}}</h4>
+        <p>联系电话：{{info.Phone}} <a ms-attr-href="tel:{{info.Phone}}" class="btn btn-xs btn-primary" >拨打</a></p>
+        <p style="margin-bottom: 30px;">用车时间：{{info.Time*1000|date('yyyy-MM-dd hh:mm')}}</p>
+        <div class="ol-info-list">
+            <div class="col-xs-6" style="padding: 0;">
+                <p>行程类型：{{$TypeDic[info.Type]}}</p>
+                <p>起<span class="zg-space">&nbsp;</span>点：{{info.beginAddress}}</p>
+                <p>终<span class="zg-space">&nbsp;</span>点：{{info.endAddress}}</p>
+            </div>
+            <div class="col-xs-6" style="padding: 0;">
+                <p>需求车型：{{$carDic[info.CarType]}}</p>
+                <p>其他要求：{{info.Memo}}</p>
+                <p>行程距离：{{info.Mileage}}公里</p>
+                <!--<p>行程距离：XXX</p>-->
+            </div>
+        </div>
+        <p>路&nbsp;&nbsp;径&nbsp;&nbsp;点：{{info.beginAddress}}-{{info.otherAddress}}-{{info.endAddress}}</p>
+
+        <br style="clear: both;">
+        <div style="margin-top: 20px;">
+            <p style="color: #26c6da;" id="driverinfo" name="driverinfo">司机信息：</p>
+            <p>姓<span class="zg-space">&nbsp;</span>名：{{DriverName}}</p>
+            <p>车&nbsp;&nbsp;牌&nbsp;&nbsp;号：{{DriverInfo.Number}}</p>
+            <p>车<span class="zg-space">&nbsp;</span>型：{{DriverInfo.Title}}</p>
+            <p>颜<span class="zg-space">&nbsp;</span>色：{{DriverInfo.Color}}</p>
+            <p>联系电话：{{DriverPhone}} <a ms-attr-href="tel:{{DriverPhone}}" class="btn btn-xs btn-primary" >拨打</a></p>
+        </div>
+
+
+        <div class="text-center" style="padding-top:20px;padding-bottom: 250px;">
+            <p style="color: #e51d23;font-size: 1.8rem">{{$OrderStatus[info.Status]}}</p>
+            <div style="border-top: 1px solid #444;margin-top: 20px;padding-top: 20px;">
+                <!--<p style="font-size: 1.8rem;">应付费用</p>-->
+                <!--<p style="font-size: 2rem;color: #e51d23;margin: 20px 0;">共计：{{info.Money}}&nbsp;元</p>-->
+                <!--&lt;!&ndash;<a href="#!/OrderInfo/info.OrderID&&user#driverinfo">&ndash;&gt;-->
+                <!--<button id="here" ms-click="ShowHide" class="btn btn-sm btn-info"-->
+                        <!--style="background: #29b6f6;width: 50%;border-radius:6px;">-->
+                    <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看详情&nbsp;&nbsp;&nbsp;&nbsp;-->
+                    <!--<i ms-if="show_status===false" class="icon-chevron-down"></i>-->
+                    <!--<i ms-if="show_status===true" class="icon-chevron-up"></i>-->
+                <!--</button>-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--<div ms-visible="show_status===true" class="ol-detail-show">-->
+                    <!--&lt;!&ndash;<h4 class="text-primary">费用信息</h4>&ndash;&gt;-->
+                    <!--<p>行程距离：{{info.Mileage}}&nbsp;公里</p>-->
+                    <!--<p>行程耗时：{{(info.EndTime-info.StartTime)/60}}&nbsp;分钟</p>-->
+                    <!--<p>车辆数量：{{info.CarAmount}}</p>-->
+                    <!--<p>车<span class="zg-space">&nbsp;</span>型：{{$Order_Type[info.Type]}}</p>-->
+                    <!--&lt;!&ndash;<p>里&nbsp;&nbsp;程&nbsp;&nbsp;价：{{info.Company.PerMileage}}&nbsp;元/里</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p>时&nbsp;&nbsp;程&nbsp;&nbsp;价：{{info.Company.PerHour}}&nbsp;元/时</p>&ndash;&gt;-->
+                <!--</div>-->
+
+
+                <!--<br>-->
+                <!--<br>-->
+                <!--由于再次请求数据响应时间过长，故采用历史记录处理本处-->
+                <a onclick="javascript:window.history.back()">
+                    <button class="btn btn-info"
+                            style="width: 100%;background: #26c6da;font-size: 2rem;border-radius:6px;">
+
+                        确定
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!--司机订单-->
+    <div ms-if="info.Driver.UID==DriverID">
+        <h4 style="font-weight: bold">我的订单详情</h4>
+        <div style="margin-top: 20px;">
+            <p>客户姓名：{{info.Name}}</p>
+            <p>用车时间：{{info.Time*1000|date('yyyy-MM-dd hh:mm')}}</p>
+            <p>起<span class="zg-space">&nbsp;</span>点：{{info.beginAddress}}</p>
+            <p>终<span class="zg-space">&nbsp;</span>点：{{info.endAddress}}</p>
+            <p style="line-height: 25px;">路&nbsp;&nbsp;径&nbsp;&nbsp;点：{{info.otherAddress}}</p>
+        </div>
+        <br style="clear: both;">
+        <div style="margin-top: 20px;">
+            <p>需求车型：{{$carDic[info.CarType]}}</p>
+            <p>需求数量：{{info.CarAmount}}</p>
+            <p>联系电话：{{info.Phone}} <a ms-attr-href="tel:{{info.Phone}}" class="btn btn-xs btn-primary" >拨打</a></p>
+        </div>
+
+
+        <div style="margin:20px 0;overflow: hidden">
+            <div class="col-xs-12" ms-if="info.Status==7" style="padding:20px 0">
+                <button ms-click="changeAddress" class="btn btn-info">修改路径点</button>
+            </div>
+            <div ms-if="editAddressFlag===true">
+                <div class="col-xs-12">
+                    <label class=" control-label">
+                        起&nbsp;&nbsp;&nbsp;&nbsp;点：
+                        <small class="text-danger">(必填)</small>
+                    </label>
+                    <input id="beginaddress" type="text" class="form-control" ms-duplex="beginAddress.Address"
+                           placeholder="起点">
+                    <br>
+                </div>
+                <div class="col-xs-12">
+                    <label class="control-label">
+                        终&nbsp;&nbsp;&nbsp;&nbsp;点：
+                        <small class="text-danger">(必填)</small>
+                    </label>
+                    <input id="endaddress" type="text" class="form-control" ms-duplex="endAddress.Address"
+                           placeholder="终点">
+                    <br>
+                </div>
+                <div class="col-xs-12" style="position: relative;" ms-repeat="otherAddress">
+                    <label class=" control-label">
+                        路&nbsp;径&nbsp;点{{$index+1}}：
+                    </label>
+                    <input type="text" class="form-control" ms-duplex="el.Address" placeholder="添加路径点">
+                    <br>
+                    <span id="address" ms-if="$last" class="ol-Way-Points-Add" ms-click="addWayPoints">+</span>
+                    <span ms-if="!$last" class="ol-Way-Points-Del" ms-click="delWayPoints($index)">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 30px;border-top: 1px solid #444">
+            <button ms-visible="info.Status==='6'" ms-click="beginBill" style="margin-top: 20px"
+                    class="btn btn-info">开始行程
+            </button>
+            <div ms-visible="info.Status==7" style="margin-top: 20px;padding-top: 20px;">
+
+                <div style="overflow: hidden" class="row">
+                    <div class="col-xs-4" style="margin-top: 5px;">行程距离</div>
+                    <div class="col-xs-8">
+                        <input ms-duplex="mileage" type="text" class="form-control" placeholder="公里数，例如：11.56">
+                    </div>
+                </div>
+                <div style="margin-top: 20px;overflow: hidden" class="row">
+                    <div class="col-xs-4" style="margin-top: 10px;">结束时刻</div>
+                    <div class="col-xs-8">
+                        <input ms-duplex="endTime" type="datetime-local" class="form-control" placeholder="以服务结束时刻为准">
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <button ms-click="finishIt" class="btn btn-info"
+                            style="width: 100%;background: #26c6da;margin-top: 30px;border-radius:6px;">完成订单
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <tsy:hey config="$opthey"></tsy:hey>
+</div>

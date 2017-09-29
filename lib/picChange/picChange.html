@@ -1,0 +1,32 @@
+<div class="pic-box" style="overflow: hidden;overflow: hidden;width: 100%;max-height: 100%">
+    <div class="left-big-box"
+         ms-css-width="box_width*images.length+'%'"
+         ms-css-height="box_height"
+         ms-css-margin-left="-(box_width)*now+'%'">
+
+        <div ms-repeat="images" class="left-big"
+             ms-class="now-img:now==images.length-1-$index"
+             ms-css-width="box_width/images.length+'%'"
+             ms-class="pa-left:(now==$index&&direction=='right')||(now==$index+1&&irection=='left')"
+             ms-class="pa-right:(now==$index&&direction=='left')||(now==$index+1&&irection=='right')">
+            <img ms-attr-src="el.src" alt="" >
+            <div class="top-mask" ms-if="direction=='right'&&now==$index"
+                 ms-css-background="{{el.color}}">
+            </div>
+            <div class="bottom-mask" ms-if="direction=='left'&&now==$index"
+                 ms-css-background="{{el.color}}">
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="icon-control-left" style="width: 100px;height: 100px;" ms-css-background-image=" url('{{arrowLorR.left.src}}')" ms-click="clickShow(now-1)"></div>
+    <div class="icon-control-right"  style="width: 100px;height: 100px;" ms-css-background-image=" url('{{arrowLorR.right.src}}')" ms-click="clickShow(now+1)"></div>
+    <div class="cir-nav">
+        <ul ms-css-left="cir_posx" ms-css-top="cir_posy">
+            <li class="cir-li" ms-repeat="images" ms-class="now-cir:now==$index" ms-click="clickShow($index)"></li>
+        </ul>
+    </div>
+</div>

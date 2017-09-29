@@ -1,0 +1,48 @@
+<div ms-controller="FindDriverAdmin">
+    <div class="pop-title">
+        {{PopPanelName}}
+    </div>
+    <br>
+
+    <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+            <td>司机编号</td>
+            <td>司机姓名</td>
+            <td>账户状态</td>
+            <td>车辆</td>
+            <td>联系方式</td>
+            <td>地址</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ms-repeat="list">
+            <td>{{el.DriverID}}</td>
+            <td>{{el.Driver.User.Name}}</td>
+            <td ms-if="el.Driver.User.Status==='1'">启用</td>
+            <td class="text-danger" ms-if="el.Driver.User.Status!=='1'">禁用</td>
+            <td>
+                <button class="btn btn-info" ms-click="myCarsInfo(el.Driver.DriverID)">{{el.Driver.Cars.length}}&nbsp;辆</button>
+            </td>
+            <td>
+                {{el.Driver.User.Phone}}
+            </td>
+            <td>
+                {{el.Driver.User.Company.Address}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" ms-if="drivers_num===false" >
+               <div style="text-align: center">
+                   <h3>本车未归属</h3>
+               </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center;margin-top: 40px">
+        <button class="btn btn-info" ms-click="admit" style="margin-top: 5px;width: 33.3333%;">
+            确定
+        </button>
+    </div>
+</div>
